@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vighnex Marketing Site
+
+Next.js + TypeScript + Tailwind CSS marketing site for Vighnex, a managed IT infrastructure
+partner for startups and growing businesses.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.local.example` to `.env.local` and fill in real values:
 
-## Learn More
+```bash
+cp .env.local.example .env.local
+```
 
-To learn more about Next.js, take a look at the following resources:
+This includes the site URL, contact details, analytics IDs (GA/GTM/Meta Pixel/LinkedIn — all
+optional, scripts only render when set), and `DATABASE_URL` for lead storage.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Database Setup (Lead Storage)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The consultation form and IT requirement calculator both post to `/api/lead`, which persists
+submissions to Postgres. Point `DATABASE_URL` in `.env.local` at your database, then run the
+migration once:
 
-## Deploy on Vercel
+```bash
+psql "$DATABASE_URL" -f db/migrations/001_create_leads.sql
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+If `DATABASE_URL` isn't set, or the `leads` table doesn't exist yet, submissions still succeed
+for the visitor — they're logged server-side instead of persisted, so nothing breaks in local
+dev without a database.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Project Structure
+
+- `app/` — routes (App Router)
+- `components/` — UI, layout, home-page sections, forms, animations
+- `data/` — centralized, CMS-ready content (services, packages, FAQs, nav, blog, etc.)
+- `lib/` — utilities, site config, DB pool, lead validation/persistence
+- `db/migrations/` — SQL migrations
+
+## Deployment
+
+Standard Next.js deployment (Vercel or any Node host). Make sure environment variables are
+configured on the host, and that the `leads` table migration has been applied to the
+production database before launch.

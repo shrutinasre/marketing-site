@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { getPool } from "@/lib/db";
 
 // Shared validation schema for any lead-capturing form on the site
 // (consultation form, IT cost calculator, etc).
@@ -22,14 +23,50 @@ export type LeadInput = z.infer<typeof leadSchema>;
 
 /**
  * Abstraction point for lead delivery.
- * Swap this implementation to connect to a CRM, email service,
- * database, or webhook without changing any form component.
+ * Persists to Postgres when DATABASE_URL is configured. If it isn't
+ * (e.g. local dev without a DB, or before the migration has been run),
+ * falls back to a server-side log so forms never hard-fail for the visitor.
+ * Extend this to also notify a CRM, send an email, or call a webhook.
  */
 export async function submitLead(lead: LeadInput): Promise<{ success: boolean }> {
-  // Placeholder: log server-side only. Replace with CRM/webhook/database call.
-  console.log("[vighnex] new lead received", {
-    ...lead,
-    // never log full contact details in production without consent/compliance review
-  });
-  return { success: true };
+  if (!process.env.DATABASE_URL) {
+    console.warn(
+      "[vighnex] DATABASE_URL not configured — lead was not persisted. Falling back to log only."
+    );
+    console.log("[vighnex] new lead (not persisted)", lead);
+    return { success: true };
+  }
+
+  try {
+    const pool = getPool();
+    await pool.query(
+      `INSERT INTO leads (
+        name, company, email, phone, country, industry,
+        employee_count, business_stage, services_required,
+        current_challenges, timeline, message, source
+      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,
+      [
+        lead.name,
+        lead.company,
+        lead.email,
+        lead.phone,
+        lead.country,
+        lead.industry ?? null,
+        lead.employeeCount ?? null,
+        lead.businessStage ?? null,
+        lead.servicesRequired ?? [],
+        lead.currentChallenges ?? null,
+        lead.timeline ?? null,
+        lead.message ?? null,
+        lead.source ?? null,
+      ]
+    );
+    return { success: true };
+  } catch (err) {
+    // If the leads table doesn't exist yet (migration not run), fall back to
+    // logging instead of failing the visitor's form submission.
+    console.error("[vighnex] failed to persist lead to Postgres", err);
+    console.log("[vighnex] new lead (fallback log)", lead);
+    return { success: true };
+  }
 }
