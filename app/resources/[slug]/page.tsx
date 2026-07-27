@@ -3,6 +3,9 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { blogPosts, getBlogPostBySlug } from "@/data/blog";
 import { CTASection } from "@/components/ui/CTASection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
+import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -34,8 +37,15 @@ export default async function BlogPostPage({
 
   const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Resources", url: `${siteConfig.url}/resources` },
+    { name: post.title, url: `${siteConfig.url}/resources/${post.slug}` },
+  ]);
+
   return (
     <>
+      <JsonLd data={[blogPostingSchema(post), breadcrumbs]} />
       <article className="py-16 md:py-24">
         <div className="container-page max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-wide text-blue-500">{post.category}</p>

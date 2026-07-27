@@ -9,6 +9,9 @@ import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { CTASection } from "@/components/ui/CTASection";
 import { Button } from "@/components/ui/Button";
 import { Check } from "lucide-react";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { serviceSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
+import { siteConfig } from "@/lib/site";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -40,8 +43,15 @@ export default async function ServicePage({
 
   const Icon = (Icons as unknown as Record<string, Icons.LucideIcon>)[service.icon] ?? Icons.Sparkles;
 
+  const breadcrumbs = breadcrumbSchema([
+    { name: "Home", url: siteConfig.url },
+    { name: "Services", url: `${siteConfig.url}/services` },
+    { name: service.title, url: `${siteConfig.url}/services/${service.slug}` },
+  ]);
+
   return (
     <>
+      <JsonLd data={[serviceSchema(service), faqPageSchema(service.faqs), breadcrumbs]} />
       <section className="bg-navy-950 py-20 text-white md:py-28">
         <div className="container-page">
           <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">

@@ -5,6 +5,8 @@ import { siteConfig } from "@/lib/site";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/analytics/Analytics";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -50,6 +52,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <JsonLd data={[organizationSchema(), websiteSchema()]} />
         <Analytics />
         <Navbar />
         <main id="main-content" className="flex-1">
