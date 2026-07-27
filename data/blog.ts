@@ -47,6 +47,142 @@ export const blogPosts: BlogPost[] = [
       "The right answer depends on your team size, growth trajectory and how much technology coordination your business already needs today.",
     ],
   },
+  {
+    slug: "how-much-does-it-infrastructure-cost-for-a-small-business",
+    title: "How Much Does IT Infrastructure Cost for a Small Business?",
+    category: "IT Cost Optimization",
+    author: "Vighnex Team",
+    date: "2026-06-18",
+    readingTime: "6 min read",
+    excerpt:
+      "There's no single number — but understanding what actually drives IT cost helps you budget realistically instead of guessing.",
+    content: [
+      "Business owners often ask for a single monthly figure for 'IT costs,' but the honest answer is that it depends on what your business actually needs — team size, the number of systems in use, and how much of that needs active management versus one-time setup.",
+      "A few categories tend to drive most of the cost: workspace and email licensing (typically billed per user), cloud hosting and storage (which scales with usage), any CRM or business application subscriptions, and the ongoing labor of managing and securing all of it.",
+      "One of the biggest hidden costs isn't a line item at all — it's the time business owners or employees spend troubleshooting IT issues themselves instead of doing their actual jobs. That cost is real even when it never appears on an invoice.",
+      "Rather than trying to estimate a number in the abstract, the more useful exercise is listing what your business currently runs on — email, storage, a website, a CRM if you have one — and pricing each honestly, including the time spent managing it.",
+      "A managed IT partner consolidates these costs into a single relationship and can usually tell you fairly quickly, after understanding your setup, roughly what a well-run version of your current stack should cost.",
+    ],
+  },
+  {
+    slug: "google-workspace-vs-microsoft-365-for-startups",
+    title: "Google Workspace vs Microsoft 365 for Startups",
+    category: "Google Workspace",
+    author: "Vighnex Team",
+    date: "2026-06-25",
+    readingTime: "7 min read",
+    excerpt:
+      "Both platforms cover the basics well. The right choice usually comes down to your team's existing habits and the tools you plan to use alongside it.",
+    content: [
+      "Google Workspace and Microsoft 365 both provide professional email, file storage, document collaboration and video conferencing — for most small teams, either platform can serve as a complete foundation.",
+      "Google Workspace tends to feel more natural for teams already comfortable with Gmail and Google Drive, and its real-time collaboration in Docs and Sheets is a strength. Microsoft 365 tends to fit better for teams that rely heavily on desktop Excel, Word, or existing Windows-based workflows, and it includes deeper integration with Teams for larger organizations.",
+      "Pricing structures are broadly comparable at the small-business tier, though specific plan features and limits differ and change over time, so it's worth checking current plan details directly with each provider rather than relying on older comparisons.",
+      "Security and administration capabilities — like multi-factor authentication, admin controls over sharing, and account provisioning — are strong on both platforms when configured correctly. The bigger risk for most small businesses isn't which platform they choose, but whether anyone is actively administering security settings at all.",
+      "If your team doesn't have a strong existing preference, the deciding factor is often what other tools you plan to integrate — some CRMs, accounting tools, or industry-specific software work more smoothly with one ecosystem than the other.",
+    ],
+  },
+  {
+    slug: "does-a-small-business-need-a-crm",
+    title: "Does a Small Business Need a CRM?",
+    category: "CRM",
+    author: "Vighnex Team",
+    date: "2026-07-02",
+    readingTime: "5 min read",
+    excerpt:
+      "If your team is tracking customers in a spreadsheet or a shared inbox, here's how to tell whether it's time for something more structured.",
+    content: [
+      "Not every small business needs a CRM on day one. If you have a handful of customers and one person handling sales or client relationships, a spreadsheet can genuinely work for a while.",
+      "The signals that it's time to move on are fairly consistent: follow-ups start slipping through the cracks, more than one person needs visibility into the same customer relationships, or you find yourself unable to answer basic questions like how many deals are currently open without digging through email threads.",
+      "A CRM's value isn't the software itself — it's the discipline of having one place where customer information, communication history and deal status live, so nothing depends on one person's memory or inbox.",
+      "Implementation is where most of the value is won or lost. A CRM configured around how your team actually sells will get used; one that's generic or overly complex tends to get abandoned within a few months.",
+      "For most growing businesses, the right time to implement a CRM is before the pain becomes acute — waiting until you've already lost track of deals means migrating messier data and retraining habits that have already formed.",
+    ],
+  },
+  {
+    slug: "cloud-hosting-vs-traditional-hosting",
+    title: "Cloud Hosting vs Traditional Hosting",
+    category: "Cloud Infrastructure",
+    author: "Vighnex Team",
+    date: "2026-07-09",
+    readingTime: "6 min read",
+    excerpt:
+      "The terminology can be confusing, but the practical differences come down to flexibility, scaling and who's responsible for what.",
+    content: [
+      "Traditional hosting typically means a fixed server or shared hosting plan with set resources — predictable, often cheaper at small scale, but limited in how easily it can grow with your business.",
+      "Cloud hosting provides infrastructure that can scale up or down based on demand, with resources like storage, compute and bandwidth provisioned more flexibly. This matters most for businesses with growing or unpredictable traffic, or applications that need to scale reliably.",
+      "Cost comparisons aren't always straightforward — traditional hosting can look cheaper on paper, but cloud hosting often becomes more cost-effective once you factor in the value of not over-provisioning for peak demand you rarely hit.",
+      "Security and reliability depend heavily on configuration in both models. Cloud platforms provide more building blocks for redundancy and automated backups, but someone still has to configure them correctly — the underlying platform alone doesn't guarantee it.",
+      "For most growing businesses, the deciding question isn't cloud versus traditional in the abstract, but whether your current hosting can support where the business is headed in the next year or two without a disruptive migration.",
+    ],
+  },
+  {
+    slug: "it-security-checklist-for-small-businesses",
+    title: "IT Security Checklist for Small Businesses",
+    category: "Cybersecurity",
+    author: "Vighnex Team",
+    date: "2026-07-16",
+    readingTime: "7 min read",
+    excerpt:
+      "A practical starting list of security basics that matter most for small teams — before anything more advanced.",
+    content: [
+      "Small businesses often assume they're not a target for security incidents, but automated attacks don't discriminate by company size — they scan broadly for weak configurations, reused passwords and unpatched software.",
+      "Multi-factor authentication on email and any system holding sensitive data is one of the highest-impact, lowest-effort security measures available, and it should be considered close to non-negotiable.",
+      "Role-based access matters more as teams grow. Not every employee needs access to every file or system — limiting access to what someone actually needs for their role reduces the damage if any single account is compromised.",
+      "Automated backups deserve a place on any security checklist, not just an operations one — ransomware and accidental deletion are both far less damaging when a recent, tested backup exists.",
+      "Beyond individual controls, someone needs to own security as an ongoing responsibility — reviewing access periodically, applying updates, and monitoring for unusual activity — rather than treating it as a one-time setup task.",
+    ],
+  },
+  {
+    slug: "what-happens-to-employee-accounts-when-someone-leaves",
+    title: "What Happens to Employee Accounts When Someone Leaves?",
+    category: "Business Technology",
+    author: "Vighnex Team",
+    date: "2026-07-21",
+    readingTime: "5 min read",
+    excerpt:
+      "Offboarding is one of the most commonly overlooked parts of employee IT management — and one of the riskiest to get wrong.",
+    content: [
+      "When an employee leaves, their access to company systems doesn't disappear automatically — someone has to actively revoke it, and without a defined process, that step is easy to miss or delay.",
+      "A structured offboarding process typically covers a few things: disabling or transferring the employee's email account, revoking access to shared drives and business applications, and reviewing what company data may exist on personal devices.",
+      "Timing matters. Offboarding that happens the same day someone leaves, rather than days or weeks later, meaningfully reduces the window in which a former employee (or anyone with access to their old credentials) could access company systems.",
+      "Data ownership and continuity also need a plan — if a departing employee owned files, calendars, or client relationships, someone needs to know how that gets transferred rather than lost.",
+      "None of this requires exotic tooling. It requires a documented checklist that gets followed consistently, every time — which is exactly the kind of process a managed IT partner takes off a business owner's plate.",
+    ],
+  },
+  {
+    slug: "why-small-businesses-need-automated-backups",
+    title: "Why Small Businesses Need Automated Backups",
+    category: "Backup & Recovery",
+    author: "Vighnex Team",
+    date: "2026-07-24",
+    readingTime: "5 min read",
+    excerpt:
+      "Most businesses only discover their backup situation is inadequate after they've already lost something.",
+    content: [
+      "It's common for small businesses to assume their data is 'backed up' simply because it lives in the cloud. Cloud storage and backup are related but different things — a file synced to the cloud can still be deleted, corrupted, or encrypted by ransomware across every synced copy.",
+      "A real backup strategy involves separate, scheduled copies of important data — databases, files, and configuration — stored in a way that a single incident, whether accidental deletion, a hardware failure, or an attack, can't destroy every copy at once.",
+      "Automation matters because manual backups get forgotten. A backup schedule that depends on someone remembering to run it periodically will eventually fail exactly when it's needed most.",
+      "Just as important as having backups is testing that they actually restore correctly. A backup that's never been tested is a hypothesis, not a safety net.",
+      "For a small business, the cost of a proper backup strategy is almost always far lower than the cost of recreating lost customer data, financial records, or work product from scratch.",
+    ],
+  },
+  {
+    slug: "when-should-a-startup-hire-an-it-team",
+    title: "When Should a Startup Hire an IT Team?",
+    category: "Startup IT",
+    author: "Vighnex Team",
+    date: "2026-07-26",
+    readingTime: "6 min read",
+    excerpt:
+      "There's a point where internal IT makes sense — but for most startups, it's later than founders assume.",
+    content: [
+      "Founders often assume that hiring an internal IT person is a milestone tied to headcount, but a more useful way to think about it is workload: how much recurring technical coordination does your business actually generate?",
+      "For most startups under roughly fifty employees, the day-to-day technical workload — managing accounts, keeping systems secure, handling support requests — rarely adds up to a full-time role, even though the underlying needs are real.",
+      "A common pattern is that startups delay dealing with IT properly because it doesn't feel urgent, then hire reactively after an incident — a lost laptop, a phishing compromise, or a chaotic offboarding — forces the issue.",
+      "A managed IT partner is often a better fit at this stage than a full-time hire, providing broader expertise across email, cloud, security and CRM than a single early hire typically could, at a fraction of the cost of a full-time salary.",
+      "The transition to internal IT staff usually makes sense once technical complexity or company size reaches a point where having someone embedded full-time, working closely with product and engineering teams, becomes genuinely more valuable than coordinated external support.",
+    ],
+  },
 ];
 
 export function getBlogPostBySlug(slug: string) {
