@@ -2,6 +2,7 @@ import { ShieldIllustration } from "@/components/illustrations/ShieldIllustratio
 import { FoundationCategoryIllustration } from "@/components/illustrations/categories/FoundationCategoryIllustration";
 import { CloudCategoryIllustration } from "@/components/illustrations/categories/CloudCategoryIllustration";
 import { ApplicationHostingIllustration } from "@/components/illustrations/categories/ApplicationHostingIllustration";
+import { DatabaseManagementIllustration } from "@/components/illustrations/categories/DatabaseManagementIllustration";
 import { SystemsCategoryIllustration } from "@/components/illustrations/categories/SystemsCategoryIllustration";
 import { WebsiteCategoryIllustration } from "@/components/illustrations/categories/WebsiteCategoryIllustration";
 import { EmployeeCategoryIllustration } from "@/components/illustrations/categories/EmployeeCategoryIllustration";
@@ -22,6 +23,9 @@ export function ServiceCategoryIllustration({
   // category default.
   if (slug === "application-hosting") {
     return <ApplicationHostingIllustration />;
+  }
+  if (slug === "database-management") {
+    return <DatabaseManagementIllustration />;
   }
 
   switch (category) {
