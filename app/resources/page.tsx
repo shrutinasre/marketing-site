@@ -27,7 +27,7 @@ export default function ResourcesPage() {
             title="IT Guides for Startups & Growing Businesses"
             subtitle="Practical, no-fluff guides on infrastructure, security, cloud and the technology decisions that come with growing a business."
           />
-          <div className="hidden md:block">
+          <div>
             <ResourcesConstellation />
           </div>
         </div>
