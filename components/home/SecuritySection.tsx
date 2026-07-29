@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
-import { ShieldIllustration } from "@/components/illustrations/ShieldIllustration";
+import { SecurityPersonIllustration } from "@/components/illustrations/people/SecurityPersonIllustration";
 
 const items = [
   { icon: KeyRound, label: "Multi-factor authentication" },
@@ -36,7 +36,7 @@ export function SecuritySection() {
   return (
     <section className="bg-navy-950 py-20 text-white md:py-28">
       <div className="container-page">
-        <ShieldIllustration />
+        <SecurityPersonIllustration />
         <div className="mt-6">
           <SectionHeading
             light

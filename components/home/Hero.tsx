@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { InfrastructureNetwork } from "@/components/home/InfrastructureNetwork";
+import { TeamAtWorkIllustration } from "@/components/illustrations/people/TeamAtWorkIllustration";
 import { GradientBlob } from "@/components/animations/GradientBlob";
 
 const trustIndicators = ["Secure", "Reliable", "Scalable", "Cost Effective"];
@@ -73,7 +73,7 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.15 }}
           className="hidden md:block"
         >
-          <InfrastructureNetwork />
+          <TeamAtWorkIllustration />
         </motion.div>
       </div>
     </section>
