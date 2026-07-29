@@ -85,7 +85,7 @@ export default async function ServicePage({
             </Button>
           </div>
           <div className="hidden md:block">
-            <ServiceCategoryIllustration category={service.category} />
+            <ServiceCategoryIllustration category={service.category} slug={service.slug} />
           </div>
         </div>
       </section>
