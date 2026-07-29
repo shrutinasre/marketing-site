@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { X, Check, ArrowDown } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { StressedPersonIllustration } from "@/components/illustrations/people/StressedPersonIllustration";
+import { CalmDashboardIllustration } from "@/components/illustrations/people/CalmDashboardIllustration";
 
 function BouncingArrow() {
   return (
@@ -52,6 +54,7 @@ export function PainPoints() {
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           <ScrollReveal>
             <div className="h-full rounded-card border border-red-100 bg-red-50/50 p-8">
+              <StressedPersonIllustration className="mx-auto mb-6 w-full max-w-[240px]" />
               <h3 className="text-sm font-semibold uppercase tracking-wide text-red-500">
                 Before Vighnex
               </h3>
@@ -67,6 +70,7 @@ export function PainPoints() {
           </ScrollReveal>
           <ScrollReveal delay={0.1}>
             <div className="h-full rounded-card border border-blue-100 bg-blue-50/50 p-8">
+              <CalmDashboardIllustration className="mx-auto mb-6 w-full max-w-[240px]" />
               <h3 className="text-sm font-semibold uppercase tracking-wide text-blue-500">
                 With Vighnex
               </h3>

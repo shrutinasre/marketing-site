@@ -1,8 +1,8 @@
 import { Rocket, TrendingUp, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
-import { FoundationIllustration } from "@/components/illustrations/FoundationIllustration";
-import { GrowthIllustration } from "@/components/illustrations/GrowthIllustration";
+import { LaunchIllustration } from "@/components/illustrations/people/LaunchIllustration";
+import { ScalingIllustration } from "@/components/illustrations/people/ScalingIllustration";
 
 const newBusinessItems = [
   "Domain & DNS",
@@ -34,7 +34,7 @@ export function NewVsExisting() {
       <div className="container-page grid gap-8 lg:grid-cols-2">
         <ScrollReveal>
           <div className="flex h-full flex-col rounded-card border border-neutral-200 bg-white p-8 md:p-10">
-            <FoundationIllustration />
+            <LaunchIllustration />
             <div className="mb-5 mt-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
               <Rocket className="h-6 w-6" />
             </div>
@@ -59,7 +59,7 @@ export function NewVsExisting() {
 
         <ScrollReveal delay={0.1}>
           <div className="flex h-full flex-col rounded-card border border-neutral-200 bg-navy-950 p-8 text-white md:p-10">
-            <GrowthIllustration />
+            <ScalingIllustration />
             <div className="mb-5 mt-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-300">
               <TrendingUp className="h-6 w-6" />
             </div>
