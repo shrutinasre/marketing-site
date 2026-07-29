@@ -15,6 +15,7 @@ import { siteConfig } from "@/lib/site";
 import { GradientBlob } from "@/components/animations/GradientBlob";
 import { ScrollReveal, StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
 import { ProcessSteps } from "@/components/services/ProcessSteps";
+import { ServiceCategoryIllustration } from "@/components/services/ServiceCategoryIllustration";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -57,30 +58,35 @@ export default async function ServicePage({
       <JsonLd data={[serviceSchema(service), faqPageSchema(service.faqs), breadcrumbs]} />
       <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-28">
         <GradientBlob className="-right-20 -top-20 h-72 w-72" />
-        <div className="container-page relative">
-          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-neutral-400">
-            <Link href="/" className="focus-ring hover:text-white">
-              Home
-            </Link>
-            <ChevronRight className="h-3 w-3" />
-            <Link href="/services" className="focus-ring hover:text-white">
-              Services
-            </Link>
-            <ChevronRight className="h-3 w-3" />
-            <span className="text-neutral-300">{service.title}</span>
-          </nav>
+        <div className="container-page relative grid items-center gap-12 md:grid-cols-2">
+          <div>
+            <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-neutral-400">
+              <Link href="/" className="focus-ring hover:text-white">
+                Home
+              </Link>
+              <ChevronRight className="h-3 w-3" />
+              <Link href="/services" className="focus-ring hover:text-white">
+                Services
+              </Link>
+              <ChevronRight className="h-3 w-3" />
+              <span className="text-neutral-300">{service.title}</span>
+            </nav>
 
-          <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
-            <div className="absolute inset-0 -z-10 animate-pulse rounded-2xl bg-blue-500/20 blur-md" />
-            <Icon className="h-7 w-7" />
+            <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+              <div className="absolute inset-0 -z-10 animate-pulse rounded-2xl bg-blue-500/20 blur-md" />
+              <Icon className="h-7 w-7" />
+            </div>
+            <h1 className="max-w-2xl text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
+              {service.title}
+            </h1>
+            <p className="mt-5 max-w-xl text-lg text-neutral-300">{service.shortDescription}</p>
+            <Button href="/contact" size="lg" className="mt-8">
+              Get Free IT Consultation
+            </Button>
           </div>
-          <h1 className="max-w-2xl text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
-            {service.title}
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-neutral-300">{service.shortDescription}</p>
-          <Button href="/contact" size="lg" className="mt-8">
-            Get Free IT Consultation
-          </Button>
+          <div className="hidden md:block">
+            <ServiceCategoryIllustration category={service.category} />
+          </div>
         </div>
       </section>
 
