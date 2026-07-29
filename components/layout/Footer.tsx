@@ -66,9 +66,9 @@ export function Footer() {
     <footer className="relative overflow-hidden border-t border-white/10 bg-navy-950 text-white">
       <FooterOrbit />
 
-      <div className="container-page relative grid grid-cols-2 gap-10 py-16 md:grid-cols-6">
+      <div className="container-page relative grid grid-cols-2 gap-10 py-16 sm:grid-cols-3 lg:grid-cols-7">
         <motion.div
-          className="col-span-2"
+          className="col-span-2 sm:col-span-3 lg:col-span-2"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -105,7 +105,7 @@ export function Footer() {
           )}
         </motion.div>
 
-        <StaggerReveal className="col-span-2 grid grid-cols-2 gap-10 md:col-span-3 md:grid-cols-3">
+        <StaggerReveal className="col-span-2 grid grid-cols-2 gap-10 sm:col-span-3 sm:grid-cols-3 lg:col-span-5 lg:grid-cols-5">
           {columns.map((col) => (
             <StaggerItem key={col.heading}>
               <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
@@ -120,45 +120,40 @@ export function Footer() {
               </ul>
             </StaggerItem>
           ))}
-        </StaggerReveal>
 
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
-            Let&apos;s Talk
-          </p>
-          <ul className="space-y-2.5 text-sm text-neutral-300">
-            <li>
-              <FooterLink href="/contact" label="Free Consultation" />
-            </li>
-            {siteConfig.contact.email && (
+          <StaggerItem>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-wide text-neutral-500">
+              Let&apos;s Talk
+            </p>
+            <ul className="space-y-2.5 text-sm text-neutral-300">
               <li>
-                <a
-                  href={`mailto:${siteConfig.contact.email}`}
-                  className="focus-ring inline-flex items-center gap-1.5 hover:text-white"
-                >
-                  <Mail className="h-3.5 w-3.5 text-blue-400" />
-                  {siteConfig.contact.email}
-                </a>
+                <FooterLink href="/contact" label="Free Consultation" />
               </li>
-            )}
-            {siteConfig.contact.phone && (
-              <li>
-                <a
-                  href={`tel:${siteConfig.contact.phone}`}
-                  className="focus-ring inline-flex items-center gap-1.5 hover:text-white"
-                >
-                  <Phone className="h-3.5 w-3.5 text-blue-400" />
-                  {siteConfig.contact.phone}
-                </a>
-              </li>
-            )}
-          </ul>
-        </motion.div>
+              {siteConfig.contact.email && (
+                <li>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}`}
+                    className="focus-ring inline-flex items-center gap-1.5 hover:text-white"
+                  >
+                    <Mail className="h-3.5 w-3.5 text-blue-400" />
+                    {siteConfig.contact.email}
+                  </a>
+                </li>
+              )}
+              {siteConfig.contact.phone && (
+                <li>
+                  <a
+                    href={`tel:${siteConfig.contact.phone}`}
+                    className="focus-ring inline-flex items-center gap-1.5 hover:text-white"
+                  >
+                    <Phone className="h-3.5 w-3.5 text-blue-400" />
+                    {siteConfig.contact.phone}
+                  </a>
+                </li>
+              )}
+            </ul>
+          </StaggerItem>
+        </StaggerReveal>
       </div>
 
       <div className="relative border-t border-white/10">

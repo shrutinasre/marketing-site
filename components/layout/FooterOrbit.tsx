@@ -1,67 +1,63 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cloud, ShieldCheck, Users, Globe, Rocket } from "lucide-react";
 
-const nodes = [
-  { icon: Rocket, x: 12, y: 18 },
-  { icon: Cloud, x: 42, y: 6 },
-  { icon: Users, x: 72, y: 20 },
-  { icon: ShieldCheck, x: 88, y: 55 },
-  { icon: Globe, x: 30, y: 60 },
-];
+const dots = Array.from({ length: 36 }, (_, i) => i);
 
 /**
- * Subtle decorative background illustration for the footer — faint
- * orbiting icon nodes around a glow, in the same abstract/geometric
- * style used across the site, kept low-opacity so it never competes
- * with the footer's text and links.
+ * Decorative background treatment for the footer — a faint dotted
+ * grid with a flowing signal wave and traveling glow pulses across
+ * the top edge. Deliberately distinct from the orbiting-icon-node
+ * illustration style used on service/solution pages, so the footer
+ * reads as its own moment rather than repeating the same motif.
  */
 export function FooterOrbit() {
   return (
     <div
-      className="pointer-events-none absolute inset-x-0 top-0 hidden h-56 overflow-hidden opacity-[0.35] md:block"
+      className="pointer-events-none absolute inset-x-0 top-0 h-48 overflow-hidden opacity-70"
       aria-hidden="true"
     >
+      {/* faint dot grid */}
+      <div className="absolute inset-0 grid grid-cols-12 gap-8 p-6 opacity-[0.15]">
+        {dots.map((i) => (
+          <span key={i} className="h-1 w-1 rounded-full bg-blue-400" />
+        ))}
+      </div>
+
       <div
-        className="absolute -top-24 right-10 h-72 w-72 rounded-full blur-3xl"
-        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.4), transparent 70%)" }}
+        className="absolute -top-16 left-1/2 h-64 w-[640px] -translate-x-1/2 rounded-full blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.28), transparent 70%)" }}
       />
-      <svg viewBox="0 0 100 60" className="absolute inset-0 h-full w-full overflow-visible" preserveAspectRatio="xMidYMin slice">
-        {nodes.map((node, i) => (
-          <motion.line
+
+      <svg viewBox="0 0 400 100" className="absolute inset-x-0 top-6 h-24 w-full" preserveAspectRatio="none">
+        <motion.path
+          d="M0 60 C 50 20, 100 20, 150 55 S 250 90, 300 50 S 380 20, 400 45"
+          fill="none"
+          stroke="#3b82f6"
+          strokeWidth="1"
+          strokeLinecap="round"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 0.5 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.6, ease: "easeOut" }}
+        />
+
+        {/* pulses traveling along the wave */}
+        {[0, 1, 2].map((i) => (
+          <motion.circle
             key={i}
-            x1={50}
-            y1={30}
-            x2={node.x}
-            y2={node.y}
-            stroke="#3b82f6"
-            strokeWidth="0.3"
-            strokeDasharray="1.2 2"
-            initial={{ pathLength: 0, opacity: 0 }}
-            whileInView={{ pathLength: 1, opacity: 0.5 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: i * 0.1 }}
+            r="2.2"
+            fill="#93c5fd"
+            initial={{ opacity: 0 }}
+            animate={{
+              cx: [0, 150, 300, 400],
+              cy: [60, 55, 50, 45],
+              opacity: [0, 1, 1, 0],
+            }}
+            transition={{ duration: 4, repeat: Infinity, delay: i * 1.3, ease: "easeInOut" }}
           />
         ))}
       </svg>
-      {nodes.map((node, i) => (
-        <motion.div
-          key={i}
-          className="absolute flex h-8 w-8 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-lg border border-blue-400/30 bg-navy-900/60 text-blue-300"
-          style={{ left: `${node.x}%`, top: `${node.y}%` }}
-          initial={{ opacity: 0, scale: 0.7 }}
-          whileInView={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-          viewport={{ once: true }}
-          transition={{
-            opacity: { duration: 0.4, delay: 0.2 + i * 0.1 },
-            scale: { duration: 0.4, delay: 0.2 + i * 0.1 },
-            y: { duration: 3.5 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
-          }}
-        >
-          <node.icon className="h-3.5 w-3.5" />
-        </motion.div>
-      ))}
     </div>
   );
 }
