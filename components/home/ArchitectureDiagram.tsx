@@ -1,29 +1,40 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Server, LayoutGrid, Building2 } from "lucide-react";
+import { Building2 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
-const layers = [
+const CENTER = 250;
+
+const rings = [
   {
-    label: "Protection",
-    icon: ShieldCheck,
-    items: ["Security", "Monitoring", "Backups", "Disaster Recovery"],
+    label: "Applications",
+    radius: 95,
+    angleOffset: -90 + 45,
+    items: ["Business Systems", "Email", "Website", "Business Apps"],
   },
   {
     label: "Infrastructure",
-    icon: Server,
+    radius: 155,
+    angleOffset: -90 + 22.5,
     items: ["Cloud Servers", "Database", "Storage", "DNS / CDN"],
   },
   {
-    label: "Applications",
-    icon: LayoutGrid,
-    items: ["Business Systems", "Email", "Website", "Business Apps"],
+    label: "Protection",
+    radius: 215,
+    angleOffset: -90,
+    items: ["Security", "Monitoring", "Backups", "Disaster Recovery"],
   },
 ];
 
-const coreItems = ["Employees", "Customers", "Operations"];
+function nodePosition(index: number, total: number, radius: number, angleOffsetDeg: number) {
+  const angle = (index / total) * Math.PI * 2 + (angleOffsetDeg * Math.PI) / 180;
+  return {
+    x: CENTER + radius * Math.cos(angle),
+    y: CENTER + radius * Math.sin(angle),
+  };
+}
 
 export function ArchitectureDiagram() {
   return (
@@ -33,75 +44,160 @@ export function ArchitectureDiagram() {
           light
           eyebrow="What We Manage"
           title="A Complete Technology Foundation, Managed End to End"
+          subtitle="Every layer around your business — protected, monitored and managed as one system, not a pile of disconnected vendors."
         />
 
         <ScrollReveal delay={0.1} className="mt-14">
-          <div className="relative mx-auto max-w-3xl rounded-[2rem] border border-dashed border-blue-400/30 p-6 sm:p-10">
-            {/* framing badge — Vighnex wraps around every layer */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-blue-400/50 bg-navy-950 px-5 py-1.5 text-xs font-bold uppercase tracking-widest text-blue-300">
-              Vighnex Managed IT
-            </div>
+          <div className="relative mx-auto aspect-square w-full max-w-[560px]" aria-hidden="true">
+            <svg viewBox="0 0 500 500" className="h-full w-full overflow-visible">
+              <defs>
+                <radialGradient id="archHubGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.6" />
+                  <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                </radialGradient>
+                <linearGradient id="archLineGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#60a5fa" />
+                  <stop offset="100%" stopColor="#1a2740" />
+                </linearGradient>
+              </defs>
 
-            <div className="flex flex-col items-center gap-4">
-              {layers.map((layer, i) => (
-                <motion.div
-                  key={layer.label}
-                  initial={{ opacity: 0, scale: 0.94 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.12 }}
-                  className="w-full rounded-2xl border p-6 text-center transition-colors"
-                  style={{
-                    maxWidth: `${100 - i * 10}%`,
-                    borderColor: `rgba(96,165,250,${0.2 + i * 0.12})`,
-                    background: `rgba(37,99,235,${0.05 + i * 0.05})`,
-                  }}
-                >
-                  <div className="mb-3 flex items-center justify-center gap-2">
-                    <layer.icon className="h-4 w-4 text-blue-300" />
-                    <p className="text-xs font-semibold uppercase tracking-wide text-blue-200">
-                      {layer.label}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {layer.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/90 transition-colors hover:border-blue-300/50 hover:bg-white/10"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+              {/* ring guides */}
+              {rings.map((ring, ri) => (
+                <motion.circle
+                  key={`guide-${ring.label}`}
+                  cx={CENTER}
+                  cy={CENTER}
+                  r={ring.radius}
+                  fill="none"
+                  stroke="#3b82f6"
+                  strokeOpacity={0.18 + ri * 0.05}
+                  strokeDasharray="4 7"
+                  strokeWidth="1.5"
+                  initial={{ scale: 0.85, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.7, delay: ri * 0.15 }}
+                  style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
+                />
               ))}
 
-              {/* core — the business itself, visually the innermost, brightest layer */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: layers.length * 0.12 }}
-                className="relative w-full max-w-[62%] rounded-2xl border border-blue-300 bg-blue-500 p-6 text-center shadow-[0_0_40px_-8px_rgba(37,99,235,0.7)]"
-              >
-                <div className="mb-3 flex items-center justify-center gap-2">
-                  <Building2 className="h-4 w-4 text-white" />
-                  <p className="text-xs font-bold uppercase tracking-widest text-white">
-                    Your Business
-                  </p>
-                </div>
-                <div className="flex flex-wrap justify-center gap-2">
-                  {coreItems.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
+              {/* spokes + nodes per ring */}
+              {rings.map((ring, ri) =>
+                ring.items.map((item, i) => {
+                  const pos = nodePosition(i, ring.items.length, ring.radius, ring.angleOffset);
+                  return (
+                    <g key={`${ring.label}-${item}`}>
+                      <motion.line
+                        x1={CENTER}
+                        y1={CENTER}
+                        x2={pos.x}
+                        y2={pos.y}
+                        stroke="url(#archLineGradient)"
+                        strokeWidth="1"
+                        initial={{ pathLength: 0, opacity: 0 }}
+                        animate={{ pathLength: 1, opacity: 0.45 }}
+                        transition={{ duration: 0.8, delay: ri * 0.15 + i * 0.05 }}
+                      />
+                      <motion.circle
+                        r="4.5"
+                        fill="#60a5fa"
+                        initial={{ opacity: 0 }}
+                        animate={{ cx: pos.x, cy: pos.y, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: ri * 0.15 + i * 0.05 + 0.3 }}
+                        style={{
+                          filter: "drop-shadow(0 0 5px rgba(96,165,250,0.8))",
+                        }}
+                      />
+                    </g>
+                  );
+                })
+              )}
+
+              {/* animated particles traveling outward along a few spokes */}
+              {rings.flatMap((ring, ri) =>
+                ring.items.slice(0, 1).map((item, i) => {
+                  const pos = nodePosition(i, ring.items.length, ring.radius, ring.angleOffset);
+                  return (
+                    <motion.circle
+                      key={`particle-${ring.label}-${item}`}
+                      r="3"
+                      fill="#93c5fd"
+                      initial={{ cx: CENTER, cy: CENTER, opacity: 0 }}
+                      animate={{
+                        cx: [CENTER, pos.x, CENTER],
+                        cy: [CENTER, pos.y, CENTER],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 3.5,
+                        repeat: Infinity,
+                        delay: ri * 0.8,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  );
+                })
+              )}
+
+              {/* hub glow + hub */}
+              <circle cx={CENTER} cy={CENTER} r="88" fill="url(#archHubGlow)" />
+              <motion.circle
+                cx={CENTER}
+                cy={CENTER}
+                r="60"
+                fill="#0b111f"
+                stroke="#3b82f6"
+                strokeWidth="2"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                style={{ transformOrigin: `${CENTER}px ${CENTER}px` }}
+              />
+            </svg>
+
+            {/* hub label */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+              <Building2 className="mb-1 h-5 w-5 text-blue-300" />
+              <span className="text-xs font-bold uppercase tracking-wide text-white">Your Business</span>
+              <span className="mt-0.5 max-w-[7rem] text-[10px] leading-tight text-neutral-400">
+                Employees · Customers · Operations
+              </span>
             </div>
+
+            {/* ring badges at each ring's 12-o'clock position */}
+            {rings.map((ring) => (
+              <div
+                key={`badge-${ring.label}`}
+                className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-blue-400/40 bg-navy-950 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-blue-300"
+                style={{
+                  left: "50%",
+                  top: `${((CENTER - ring.radius) / 500) * 100}%`,
+                }}
+              >
+                {ring.label}
+              </div>
+            ))}
+
+            {/* node labels */}
+            {rings.map((ring) =>
+              ring.items.map((item, i) => {
+                const pos = nodePosition(i, ring.items.length, ring.radius, ring.angleOffset);
+                const leftPct = (pos.x / 500) * 100;
+                const topPct = (pos.y / 500) * 100;
+                return (
+                  <div
+                    key={`label-${ring.label}-${item}`}
+                    className="absolute w-24 text-center"
+                    style={{
+                      left: `${leftPct}%`,
+                      top: `${topPct}%`,
+                      transform: `translate(-50%, ${pos.y > CENTER ? "6px" : "-100%"})`,
+                    }}
+                  >
+                    <span className="text-[10px] leading-tight text-neutral-300">{item}</span>
+                  </div>
+                );
+              })
+            )}
           </div>
         </ScrollReveal>
       </div>
