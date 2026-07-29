@@ -7,23 +7,28 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
 const CENTER = 250;
 
+// All rings share the same angle offset so every ring has a guaranteed
+// gap at the top (12 o'clock) — that's where each ring's label badge
+// sits, so a node must never land there or it collides with the badge.
+const RING_ANGLE_OFFSET = -90 + 45;
+
 const rings = [
   {
     label: "Applications",
     radius: 95,
-    angleOffset: -90 + 45,
+    angleOffset: RING_ANGLE_OFFSET,
     items: ["Business Systems", "Email", "Website", "Business Apps"],
   },
   {
     label: "Infrastructure",
     radius: 155,
-    angleOffset: -90 + 22.5,
+    angleOffset: RING_ANGLE_OFFSET,
     items: ["Cloud Servers", "Database", "Storage", "DNS / CDN"],
   },
   {
     label: "Protection",
     radius: 215,
-    angleOffset: -90,
+    angleOffset: RING_ANGLE_OFFSET,
     items: ["Security", "Monitoring", "Backups", "Disaster Recovery"],
   },
 ];
