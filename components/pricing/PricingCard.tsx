@@ -1,11 +1,24 @@
-import { Check } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import { Check, Rocket, Building2, Crown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 import type { PackageTier } from "@/types";
 
+const packageIcons: Record<string, typeof Rocket> = {
+  "startup-it": Rocket,
+  "business-it": Building2,
+  "managed-it": Crown,
+};
+
 export function PricingCard({ pkg }: { pkg: PackageTier }) {
+  const Icon = packageIcons[pkg.slug] ?? Rocket;
+
   return (
-    <div
+    <motion.div
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
       className={cn(
         "relative flex h-full flex-col rounded-card border p-8",
         pkg.featured
@@ -18,6 +31,14 @@ export function PricingCard({ pkg }: { pkg: PackageTier }) {
           Most Popular
         </span>
       )}
+      <div
+        className={cn(
+          "mb-4 flex h-11 w-11 items-center justify-center rounded-xl",
+          pkg.featured ? "bg-blue-500/20 text-blue-300" : "bg-blue-500/10 text-blue-500"
+        )}
+      >
+        <Icon className="h-5 w-5" />
+      </div>
       <h3 className={cn("text-xl font-bold", pkg.featured ? "text-white" : "text-navy-900")}>
         {pkg.name}
       </h3>
@@ -48,6 +69,6 @@ export function PricingCard({ pkg }: { pkg: PackageTier }) {
       >
         Get My IT Plan
       </Button>
-    </div>
+    </motion.div>
   );
 }

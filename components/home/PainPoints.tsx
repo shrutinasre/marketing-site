@@ -1,6 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { X, Check, ArrowDown } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+
+function BouncingArrow() {
+  return (
+    <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}>
+      <ArrowDown className="h-4 w-4 text-blue-400" />
+    </motion.div>
+  );
+}
 
 const before = [
   "Multiple vendors",
@@ -32,9 +43,9 @@ export function PainPoints() {
 
         <div className="mt-8 flex flex-col items-center gap-2 text-center text-sm text-neutral-500">
           <span>Multiple Vendors + Systems + Problems</span>
-          <ArrowDown className="h-4 w-4" />
+          <BouncingArrow />
           <span className="font-semibold text-blue-500">Vighnex</span>
-          <ArrowDown className="h-4 w-4" />
+          <BouncingArrow />
           <span>One Managed IT Environment</span>
         </div>
 

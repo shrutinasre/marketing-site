@@ -5,6 +5,7 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { InfrastructureNetwork } from "@/components/home/InfrastructureNetwork";
+import { GradientBlob } from "@/components/animations/GradientBlob";
 
 const trustIndicators = ["Secure", "Reliable", "Scalable", "Cost Effective"];
 const trustMetrics = ["One IT Partner", "24/7 Infrastructure Monitoring", "Secure by Design"];
@@ -20,6 +21,8 @@ export function Hero() {
         }}
         aria-hidden="true"
       />
+      <GradientBlob className="-left-32 top-10 h-72 w-72" />
+      <GradientBlob className="right-0 bottom-0 h-96 w-96" color="soft" />
       <div className="container-page relative grid items-center gap-14 md:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import {
   KeyRound,
   Users,
@@ -12,7 +15,8 @@ import {
   LifeBuoy,
 } from "lucide-react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
+import { ShieldIllustration } from "@/components/illustrations/ShieldIllustration";
 
 const items = [
   { icon: KeyRound, label: "Multi-factor authentication" },
@@ -32,23 +36,26 @@ export function SecuritySection() {
   return (
     <section className="bg-navy-950 py-20 text-white md:py-28">
       <div className="container-page">
-        <SectionHeading
-          light
-          title="Your Business Runs on Technology. Protect It Properly."
-        />
-        <ScrollReveal delay={0.1}>
-          <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
-            {items.map((item) => (
-              <div
-                key={item.label}
-                className="flex flex-col items-center gap-3 rounded-card border border-white/10 bg-white/5 p-5 text-center"
+        <ShieldIllustration />
+        <div className="mt-6">
+          <SectionHeading
+            light
+            title="Your Business Runs on Technology. Protect It Properly."
+          />
+        </div>
+        <StaggerReveal className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+          {items.map((item) => (
+            <StaggerItem key={item.label}>
+              <motion.div
+                whileHover={{ y: -4, borderColor: "rgba(96,165,250,0.5)" }}
+                className="flex h-full flex-col items-center gap-3 rounded-card border border-white/10 bg-white/5 p-5 text-center transition-colors"
               >
                 <item.icon className="h-6 w-6 text-blue-300" />
                 <span className="text-sm text-neutral-200">{item.label}</span>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+              </motion.div>
+            </StaggerItem>
+          ))}
+        </StaggerReveal>
       </div>
     </section>
   );

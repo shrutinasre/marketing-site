@@ -1,6 +1,8 @@
 import { Rocket, TrendingUp, Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { FoundationIllustration } from "@/components/illustrations/FoundationIllustration";
+import { GrowthIllustration } from "@/components/illustrations/GrowthIllustration";
 
 const newBusinessItems = [
   "Domain & DNS",
@@ -32,7 +34,8 @@ export function NewVsExisting() {
       <div className="container-page grid gap-8 lg:grid-cols-2">
         <ScrollReveal>
           <div className="flex h-full flex-col rounded-card border border-neutral-200 bg-white p-8 md:p-10">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
+            <FoundationIllustration />
+            <div className="mb-5 mt-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
               <Rocket className="h-6 w-6" />
             </div>
             <h3 className="text-2xl font-bold text-navy-900">Starting a New Business?</h3>
@@ -56,7 +59,8 @@ export function NewVsExisting() {
 
         <ScrollReveal delay={0.1}>
           <div className="flex h-full flex-col rounded-card border border-neutral-200 bg-navy-950 p-8 text-white md:p-10">
-            <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-300">
+            <GrowthIllustration />
+            <div className="mb-5 mt-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-300">
               <TrendingUp className="h-6 w-6" />
             </div>
             <h3 className="text-2xl font-bold">Already Running a Business?</h3>
