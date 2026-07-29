@@ -76,6 +76,45 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "application-hosting",
+    icon: "Server",
+    title: "Application Hosting",
+    shortDescription:
+      "Reliable, scalable hosting for your business applications — deployed, monitored and kept running.",
+    category: "cloud",
+    problem:
+      "Applications that were fine at launch often start to strain as usage grows — slow performance, occasional downtime, or a deployment process nobody quite trusts anymore.",
+    solution:
+      "We host and manage your applications on infrastructure sized for how your business actually uses them, with a deployment process that doesn't require crossing your fingers.",
+    included: [
+      "Application hosting & deployment",
+      "Staging and production environments",
+      "Zero-downtime release process",
+      "Auto-scaling configuration",
+      "Uptime & performance monitoring",
+      "CDN configuration for faster delivery",
+    ],
+    process: [
+      "Assess your application and current hosting setup",
+      "Design a hosting environment sized to your usage",
+      "Deploy with a staged, low-risk rollout",
+      "Monitor performance and uptime on an ongoing basis",
+    ],
+    benefits: [
+      "Applications that stay fast as usage grows",
+      "A deployment process you can trust",
+      "One team responsible for uptime",
+    ],
+    technologies: ["AWS", "DigitalOcean", "Docker", "Cloudflare"],
+    faqs: [
+      {
+        question: "How is this different from Cloud Infrastructure?",
+        answer:
+          "Cloud Infrastructure covers your broader server, database and storage setup. Application Hosting focuses specifically on how your applications are deployed, scaled and kept running reliably day to day — the two are often managed together.",
+      },
+    ],
+  },
+  {
     slug: "business-systems",
     icon: "Users",
     title: "Business Systems",
