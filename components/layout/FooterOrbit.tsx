@@ -9,8 +9,8 @@ const particles = Array.from({ length: 16 }, (_, i) => ({
   icon: icons[i % icons.length],
   x: (i * 6.4 + 4) % 100,
   size: 12 + ((i * 5) % 6),
-  duration: 9 + ((i * 7) % 8),
-  delay: (i * 0.9) % 8,
+  duration: 6 + ((i * 5) % 5),
+  delay: (i * 0.25) % 2.5,
 }));
 
 /**
@@ -36,7 +36,8 @@ export function FooterOrbit() {
             bottom: 0,
           }}
           initial={{ opacity: 0, y: 40, rotate: -8 }}
-          animate={{ opacity: [0, 0.55, 0], y: [40, -240], rotate: [-8, 8] }}
+          whileInView={{ opacity: [0, 0.55, 0], y: [40, -240], rotate: [-8, 8] }}
+          viewport={{ once: true }}
           transition={{
             duration: p.duration,
             repeat: Infinity,
