@@ -21,7 +21,7 @@ export const navigation: NavItem[] = [
           { label: "Cloud Infrastructure", href: "/services/cloud-infrastructure", description: "Servers, hosting & scaling." },
           { label: "Application Hosting", href: "/services/application-hosting", description: "Reliable hosting for your apps." },
           { label: "Managed Database", href: "/services/database-management", description: "Provisioned, tuned, backed up." },
-          { label: "Cloud Storage", href: "/services/cloud-infrastructure", description: "Secure, scalable file storage." },
+          { label: "Cloud Storage", href: "/services/cloud-storage", description: "Secure, scalable file storage." },
           { label: "Backup & Recovery", href: "/services/backup-disaster-recovery", description: "Automated backups & recovery plans." },
         ],
       },

@@ -115,6 +115,45 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "cloud-storage",
+    icon: "HardDrive",
+    title: "Cloud Storage",
+    shortDescription:
+      "Secure, scalable file storage with automated backups, access control and fast retrieval.",
+    category: "cloud",
+    problem:
+      "Business files often end up scattered across personal drives and shared folders, with no clear backup plan and no consistent way to control who can access what.",
+    solution:
+      "We set up centralized cloud storage sized to how your business actually works — organized, access-controlled, backed up automatically, and fast to retrieve when you need it.",
+    included: [
+      "Centralized file storage setup",
+      "Folder structure & access permissions",
+      "Automated backup scheduling",
+      "Version history & recovery",
+      "Storage capacity monitoring",
+      "CDN-backed fast retrieval for shared files",
+    ],
+    process: [
+      "Assess current files and storage sprawl",
+      "Design a storage structure and access policy",
+      "Migrate files with permissions intact",
+      "Monitor capacity and backups on an ongoing basis",
+    ],
+    benefits: [
+      "One place for all business files",
+      "Backups you don't have to think about",
+      "Access controlled by role, not guesswork",
+    ],
+    technologies: ["AWS S3", "Google Workspace", "Cloudflare"],
+    faqs: [
+      {
+        question: "How is this different from Cloud Infrastructure?",
+        answer:
+          "Cloud Infrastructure covers your servers, databases and application hosting. Cloud Storage focuses specifically on where your files live — how they're organized, backed up and shared securely.",
+      },
+    ],
+  },
+  {
     slug: "business-systems",
     icon: "Users",
     title: "Business Systems",

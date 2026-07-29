@@ -3,6 +3,7 @@ import { FoundationCategoryIllustration } from "@/components/illustrations/categ
 import { CloudCategoryIllustration } from "@/components/illustrations/categories/CloudCategoryIllustration";
 import { ApplicationHostingIllustration } from "@/components/illustrations/categories/ApplicationHostingIllustration";
 import { DatabaseManagementIllustration } from "@/components/illustrations/categories/DatabaseManagementIllustration";
+import { CloudStorageIllustration } from "@/components/illustrations/categories/CloudStorageIllustration";
 import { SystemsCategoryIllustration } from "@/components/illustrations/categories/SystemsCategoryIllustration";
 import { WebsiteCategoryIllustration } from "@/components/illustrations/categories/WebsiteCategoryIllustration";
 import { EmployeeCategoryIllustration } from "@/components/illustrations/categories/EmployeeCategoryIllustration";
@@ -26,6 +27,9 @@ export function ServiceCategoryIllustration({
   }
   if (slug === "database-management") {
     return <DatabaseManagementIllustration />;
+  }
+  if (slug === "cloud-storage") {
+    return <CloudStorageIllustration />;
   }
 
   switch (category) {
