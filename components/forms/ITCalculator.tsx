@@ -6,7 +6,7 @@ import { CheckCircle2 } from "lucide-react";
 const stages = ["Starting New", "Already Operating", "Growing Rapidly"];
 const needsOptions = [
   "Professional Email",
-  "CRM",
+  "Business Systems",
   "Cloud Hosting",
   "Database",
   "Storage",

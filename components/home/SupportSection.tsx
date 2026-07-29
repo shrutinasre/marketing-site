@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 const categories = [
   { icon: Mail, label: "Email" },
   { icon: UserCog, label: "Accounts" },
-  { icon: Users, label: "CRM" },
+  { icon: Users, label: "Business Systems" },
   { icon: Cloud, label: "Cloud" },
   { icon: Globe, label: "Website" },
   { icon: Database, label: "Database" },
@@ -23,7 +23,7 @@ export function SupportSection() {
         <SectionHeading
           eyebrow="Managed Support"
           title="One Place for IT Support"
-          subtitle="You shouldn't need to figure out whether a problem belongs to your email provider, hosting provider, CRM vendor or cloud provider. Vighnex is your primary technical contact, coordinating across your entire technology environment."
+          subtitle="You shouldn't need to figure out whether a problem belongs to your email provider, hosting provider, business systems vendor or cloud provider. Vighnex is your primary technical contact, coordinating across your entire technology environment."
         />
         <ScrollReveal delay={0.1}>
           <div className="mt-12 flex flex-wrap justify-center gap-3">

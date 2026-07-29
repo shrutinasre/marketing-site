@@ -13,7 +13,7 @@ const benefits = [
     icon: UserCheck,
     title: "Single Point of Contact",
     description:
-      "Instead of coordinating between hosting companies, email providers, CRM vendors and developers, work with one technology partner.",
+      "Instead of coordinating between hosting companies, email providers, business systems vendors and developers, work with one technology partner.",
   },
   {
     icon: TrendingUp,

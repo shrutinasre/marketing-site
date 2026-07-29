@@ -14,7 +14,7 @@ const layers = [
   },
   {
     label: "Applications",
-    items: ["CRM", "Email", "Website", "Business Apps"],
+    items: ["Business Systems", "Email", "Website", "Business Apps"],
     tone: "bg-blue-500/20 border-blue-400/50",
   },
   {

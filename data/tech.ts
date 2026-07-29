@@ -11,7 +11,7 @@ export const techEcosystem: { name: string }[] = [
 
 export const ecosystemNodes: { label: string }[] = [
   { label: "Professional Email" },
-  { label: "CRM & Business Applications" },
+  { label: "Business Systems & Applications" },
   { label: "Website & Digital Presence" },
   { label: "Security & Backup" },
   { label: "IT Support & Management" },

@@ -6,7 +6,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata: Metadata = {
   title: "Resources & Blog",
   description:
-    "Practical guides on startup IT, cloud infrastructure, cybersecurity, CRM, Google Workspace, Microsoft 365 and IT cost optimization.",
+    "Practical guides on startup IT, cloud infrastructure, cybersecurity, business systems, Google Workspace, Microsoft 365 and IT cost optimization.",
 };
 
 export default function ResourcesPage() {

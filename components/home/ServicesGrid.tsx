@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/animations/ScrollReveal";
 const featuredSlugs = [
   "startup-it-setup",
   "cloud-infrastructure",
-  "crm-implementation",
+  "business-systems",
   "it-security",
   "website-hosting",
   "employee-it-management",

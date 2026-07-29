@@ -28,10 +28,10 @@ export const navigation: NavItem[] = [
       {
         heading: "Business Systems",
         items: [
-          { label: "CRM", href: "/services/crm-implementation", description: "Implementation & administration." },
-          { label: "Business Applications", href: "/services/crm-implementation", description: "The tools your team runs on." },
+          { label: "Business Systems", href: "/services/business-systems", description: "Implementation & administration." },
+          { label: "Business Applications", href: "/services/business-systems", description: "The tools your team runs on." },
           { label: "Workspace Administration", href: "/services/business-email-workspace", description: "Google Workspace / Microsoft 365." },
-          { label: "Integrations", href: "/services/crm-implementation", description: "Connecting your business systems." },
+          { label: "Integrations", href: "/services/business-systems", description: "Connecting your business systems." },
         ],
       },
       {

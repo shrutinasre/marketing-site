@@ -9,7 +9,7 @@ export const faqs: FAQ[] = [
   {
     question: "Can you set up IT for a completely new company?",
     answer:
-      "Yes. We handle end-to-end setup — domain and DNS, professional email, employee accounts, cloud infrastructure, CRM, website hosting, security and backups — so your team can start operating professionally from day one.",
+      "Yes. We handle end-to-end setup — domain and DNS, professional email, employee accounts, cloud infrastructure, business systems, website hosting, security and backups — so your team can start operating professionally from day one.",
   },
   {
     question: "Can you manage our existing infrastructure?",
@@ -22,9 +22,9 @@ export const faqs: FAQ[] = [
       "Yes. This includes account setup and administration, permissions and access management, security configuration, and employee onboarding and offboarding.",
   },
   {
-    question: "Can you manage our CRM?",
+    question: "Can you manage our business systems?",
     answer:
-      "Yes. We handle CRM implementation, configuration, customization, integrations with other business systems, and ongoing administration.",
+      "Yes. We handle business systems implementation — including your CRM — configuration, customization, integrations with other business applications, and ongoing administration.",
   },
   {
     question: "Can you migrate our existing systems?",

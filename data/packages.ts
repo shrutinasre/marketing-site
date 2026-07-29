@@ -24,7 +24,7 @@ export const packages: PackageTier[] = [
     priceLabel: "Custom Quote",
     inclusions: [
       "Everything in Startup IT",
-      "CRM administration",
+      "Business systems administration",
       "Cloud infrastructure management",
       "Database management",
       "Monitoring",
@@ -42,7 +42,7 @@ export const packages: PackageTier[] = [
       "Complete infrastructure management",
       "Advanced monitoring",
       "Security administration",
-      "CRM & business systems management",
+      "Business systems management",
       "Cloud optimization",
       "Backup & recovery management",
       "Employee IT administration",

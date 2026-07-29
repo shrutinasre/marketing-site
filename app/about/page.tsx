@@ -28,7 +28,7 @@ const pillars = [
   {
     icon: Workflow,
     title: "How We Work",
-    text: "One managed relationship covering email, cloud, CRM, security and support — coordinated by a single technology partner instead of multiple vendors.",
+    text: "One managed relationship covering email, cloud, business systems, security and support — coordinated by a single technology partner instead of multiple vendors.",
   },
   {
     icon: Cpu,

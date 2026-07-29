@@ -76,18 +76,18 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "crm-implementation",
+    slug: "business-systems",
     icon: "Users",
-    title: "CRM & Business Systems",
+    title: "Business Systems",
     shortDescription:
-      "CRM implementation, configuration, customization, hosting, integrations and administration.",
+      "Business systems implementation, configuration, customization, hosting, integrations and administration.",
     category: "systems",
     problem:
       "Many growing businesses track customers and deals in spreadsheets or scattered inboxes, causing missed follow-ups and lost visibility.",
     solution:
-      "We implement and administer a CRM configured around how your team actually sells and serves customers, integrated with your other business systems.",
+      "We implement and administer the business systems your team relies on — like your CRM — configured around how your team actually sells and serves customers, integrated with your other business applications.",
     included: [
-      "CRM selection guidance",
+      "Business system selection guidance",
       "Implementation & configuration",
       "Data migration",
       "Integrations with email and business apps",
@@ -96,7 +96,7 @@ export const services: Service[] = [
     ],
     process: [
       "Understand your sales and service workflow",
-      "Configure the CRM around that workflow",
+      "Configure your business systems around that workflow",
       "Migrate existing customer data",
       "Train your team and provide ongoing support",
     ],
@@ -104,9 +104,9 @@ export const services: Service[] = [
     technologies: ["Google Workspace", "Microsoft 365"],
     faqs: [
       {
-        question: "Can you manage our existing CRM?",
+        question: "Can you manage our existing business systems?",
         answer:
-          "Yes. We can take over administration, fix configuration issues, and manage ongoing changes.",
+          "Yes. We can take over administration of your existing CRM or other business applications, fix configuration issues, and manage ongoing changes.",
       },
     ],
   },
@@ -150,17 +150,17 @@ export const services: Service[] = [
     icon: "Globe",
     title: "Website & Digital Presence",
     shortDescription:
-      "Business websites, hosting, SSL, analytics, DNS and CRM lead integration.",
+      "Business websites, hosting, SSL, analytics, DNS and business systems lead integration.",
     category: "website",
     problem:
-      "A business website is often built once and then neglected — no one is responsible for hosting, security updates or connecting leads into a CRM.",
+      "A business website is often built once and then neglected — no one is responsible for hosting, security updates or connecting leads into your business systems.",
     solution:
-      "We build and manage your website infrastructure, including hosting, SSL, DNS, analytics and lead capture into your CRM.",
+      "We build and manage your website infrastructure, including hosting, SSL, DNS, analytics and lead capture into your business systems.",
     included: [
       "Website hosting & infrastructure",
       "SSL & DNS management",
       "Analytics configuration",
-      "CRM lead integration",
+      "Business systems lead integration",
       "Ongoing maintenance",
     ],
     process: [
@@ -169,7 +169,7 @@ export const services: Service[] = [
       "Connect analytics and lead capture",
       "Maintain and monitor ongoing",
     ],
-    benefits: ["A website that stays online and secure", "Leads flow directly into your CRM", "One partner for the whole stack"],
+    benefits: ["A website that stays online and secure", "Leads flow directly into your business systems", "One partner for the whole stack"],
     technologies: ["Cloudflare", "AWS", "DigitalOcean"],
     faqs: [
       {
@@ -221,7 +221,7 @@ export const services: Service[] = [
       "Ongoing troubleshooting, infrastructure administration, maintenance and technical assistance.",
     category: "support",
     problem:
-      "Small teams often don't know who to call when something breaks — is it the hosting provider, the email provider, or the CRM vendor?",
+      "Small teams often don't know who to call when something breaks — is it the hosting provider, the email provider, or the business systems vendor?",
     solution:
       "We become your single technical point of contact, coordinating across every part of your infrastructure so you don't have to.",
     included: [

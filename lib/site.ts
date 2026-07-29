@@ -5,7 +5,7 @@ export const siteConfig = {
   name: "Vighnex",
   tagline: "Your Complete IT Infrastructure Partner",
   description:
-    "Vighnex designs, deploys, secures and manages the complete IT infrastructure that startups and growing businesses run on — from professional email to cloud, CRM, security and ongoing support.",
+    "Vighnex designs, deploys, secures and manages the complete IT infrastructure that startups and growing businesses run on — from professional email to cloud, business systems, security and ongoing support.",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://www.vighnex.com",
   contact: {
     email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@vighnex.com",

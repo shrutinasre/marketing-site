@@ -7,7 +7,7 @@ import { CTASection } from "@/components/ui/CTASection";
 export const metadata: Metadata = {
   title: "Managed IT Services",
   description:
-    "Explore Vighnex's full range of managed IT services — from startup IT setup to cloud infrastructure, CRM, security, and ongoing support.",
+    "Explore Vighnex's full range of managed IT services — from startup IT setup to cloud infrastructure, business systems, security, and ongoing support.",
 };
 
 export default function ServicesPage() {

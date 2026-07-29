@@ -18,7 +18,7 @@ export default function IndustriesPage() {
             light
             eyebrow="Industries"
             title="Infrastructure That Adapts to Your Industry"
-            subtitle="The technology foundation businesses need is similar across industries — professional email, cloud infrastructure, CRM, security and support — configured to fit how your business actually operates."
+            subtitle="The technology foundation businesses need is similar across industries — professional email, cloud infrastructure, business systems, security and support — configured to fit how your business actually operates."
           />
         </div>
       </section>

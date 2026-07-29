@@ -14,8 +14,8 @@ export const solutionsBySize: SolutionSize[] = [
     name: "Small Business",
     employeeRange: "10–50 employees",
     description:
-      "Structured infrastructure, employee administration, CRM, security, cloud services and managed support.",
-    focusAreas: ["Employee IT management", "CRM", "Cloud infrastructure", "Security & backup"],
+      "Structured infrastructure, employee administration, business systems, security, cloud services and managed support.",
+    focusAreas: ["Employee IT management", "Business Systems", "Cloud infrastructure", "Security & backup"],
   },
   {
     slug: "medium-business",
@@ -33,14 +33,14 @@ export const solutionsByStage: SolutionSize[] = [
     name: "New Startups",
     employeeRange: "Starting from zero",
     description: "We build your entire IT foundation from scratch so your team can operate professionally from day one.",
-    focusAreas: ["Domain & DNS", "Email & workspace", "Cloud infrastructure", "CRM & collaboration"],
+    focusAreas: ["Domain & DNS", "Email & workspace", "Cloud infrastructure", "Business systems & collaboration"],
   },
   {
     slug: "growing-businesses",
     name: "Growing Businesses",
     employeeRange: "Scaling teams",
-    description: "We add structure — CRM, security and employee administration — as your team and operations grow.",
-    focusAreas: ["Employee IT management", "CRM administration", "Security baseline", "Managed support"],
+    description: "We add structure — business systems, security and employee administration — as your team and operations grow.",
+    focusAreas: ["Employee IT management", "Business systems administration", "Security baseline", "Managed support"],
   },
   {
     slug: "existing-businesses",

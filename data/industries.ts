@@ -1,9 +1,9 @@
 import type { Industry } from "@/types";
 
 export const industries: Industry[] = [
-  { name: "Real Estate", description: "CRM, document management and professional email for agents and brokerages." },
+  { name: "Real Estate", description: "Business systems, document management and professional email for agents and brokerages." },
   { name: "Professional Services", description: "Client management, secure file sharing and reliable collaboration tools." },
-  { name: "Consulting", description: "CRM, scheduling and infrastructure that supports a distributed team." },
+  { name: "Consulting", description: "Business systems, scheduling and infrastructure that supports a distributed team." },
   { name: "Trading", description: "Reliable infrastructure and access management for transaction-driven teams." },
   { name: "Retail", description: "Website, hosting and business systems that support day-to-day operations." },
   { name: "E-commerce", description: "Cloud infrastructure, database management and uptime-focused hosting." },
