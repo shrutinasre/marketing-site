@@ -1,10 +1,21 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { NavGroup } from "@/types";
 
-export function MegaMenu({ groups, onNavigate }: { groups: NavGroup[]; onNavigate?: () => void }) {
+export function MegaMenu({
+  groups,
+  onNavigate,
+  viewAllHref,
+  viewAllLabel,
+}: {
+  groups: NavGroup[];
+  onNavigate?: () => void;
+  viewAllHref?: string;
+  viewAllLabel?: string;
+}) {
   return (
     <AnimatePresence>
       <motion.div
@@ -44,6 +55,19 @@ export function MegaMenu({ groups, onNavigate }: { groups: NavGroup[]; onNavigat
             </div>
           ))}
         </div>
+
+        {viewAllHref && (
+          <div className="mt-6 border-t border-neutral-100 pt-4">
+            <Link
+              href={viewAllHref}
+              onClick={onNavigate}
+              className="focus-ring inline-flex items-center gap-1.5 text-sm font-semibold text-blue-500 hover:text-blue-600"
+            >
+              {viewAllLabel ?? "View All"}
+              <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
+          </div>
+        )}
       </motion.div>
     </AnimatePresence>
   );
