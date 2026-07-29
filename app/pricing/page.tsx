@@ -4,6 +4,7 @@ import { PricingCard } from "@/components/pricing/PricingCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ITCalculator } from "@/components/forms/ITCalculator";
 import { CTASection } from "@/components/ui/CTASection";
+import { GradientBlob } from "@/components/animations/GradientBlob";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <>
-      <section className="bg-navy-950 py-20 text-white md:py-24">
-        <div className="container-page">
+      <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-24">
+        <GradientBlob className="right-0 -top-16 h-72 w-72" />
+        <div className="container-page relative">
           <SectionHeading
             light
             eyebrow="Packages"

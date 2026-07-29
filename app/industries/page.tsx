@@ -2,11 +2,41 @@ import type { Metadata } from "next";
 import { industries } from "@/data/industries";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
+import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
+import {
+  Building2,
+  Briefcase,
+  Users,
+  LineChart,
+  ShoppingBag,
+  ShoppingCart,
+  Megaphone,
+  HardHat,
+  Truck,
+  HeartPulse,
+  GraduationCap,
+  Rocket,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Industries We Support",
   description:
     "Vighnex's managed IT infrastructure supports businesses across real estate, professional services, retail, e-commerce, agencies and more.",
+};
+
+const industryIcons: Record<string, typeof Building2> = {
+  "Real Estate": Building2,
+  "Professional Services": Briefcase,
+  Consulting: Users,
+  Trading: LineChart,
+  Retail: ShoppingBag,
+  "E-commerce": ShoppingCart,
+  Agencies: Megaphone,
+  Construction: HardHat,
+  Logistics: Truck,
+  "Healthcare Administration": HeartPulse,
+  "Education Businesses": GraduationCap,
+  "Technology Startups": Rocket,
 };
 
 export default function IndustriesPage() {
@@ -23,14 +53,22 @@ export default function IndustriesPage() {
         </div>
       </section>
       <section className="py-16 md:py-20">
-        <div className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {industries.map((industry) => (
-            <div key={industry.name} className="rounded-card border border-neutral-200 p-6">
-              <h3 className="text-lg font-bold text-navy-900">{industry.name}</h3>
-              <p className="mt-2 text-sm text-neutral-600">{industry.description}</p>
-            </div>
-          ))}
-        </div>
+        <StaggerReveal className="container-page grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {industries.map((industry) => {
+            const Icon = industryIcons[industry.name] ?? Building2;
+            return (
+              <StaggerItem key={industry.name}>
+                <div className="h-full rounded-card border border-neutral-200 p-6 transition-all hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="text-lg font-bold text-navy-900">{industry.name}</h3>
+                  <p className="mt-2 text-sm text-neutral-600">{industry.description}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerReveal>
       </section>
       <CTASection
         heading="Don't See Your Industry?"

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
+import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
+import { AboutIllustration } from "@/components/illustrations/AboutIllustration";
 import { Target, Compass, Heart, Workflow, Cpu } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -48,21 +50,26 @@ export default function AboutPage() {
             title="Your Complete IT Infrastructure Partner"
             subtitle="Many smaller businesses either operate with fragmented technology or spend too much time coordinating multiple vendors. Vighnex exists to provide a structured, secure and scalable technology foundation through one managed relationship."
           />
+          <div className="mt-10">
+            <AboutIllustration />
+          </div>
         </div>
       </section>
 
       <section className="py-16 md:py-20">
-        <div className="container-page grid gap-8 sm:grid-cols-2">
+        <StaggerReveal className="container-page grid gap-8 sm:grid-cols-2">
           {pillars.map((pillar) => (
-            <div key={pillar.title} className="rounded-card border border-neutral-200 p-7">
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
-                <pillar.icon className="h-5 w-5" />
+            <StaggerItem key={pillar.title}>
+              <div className="h-full rounded-card border border-neutral-200 p-7 transition-shadow hover:shadow-lg">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
+                  <pillar.icon className="h-5 w-5" />
+                </div>
+                <h3 className="text-lg font-bold text-navy-900">{pillar.title}</h3>
+                <p className="mt-2 text-sm text-neutral-600">{pillar.text}</p>
               </div>
-              <h3 className="text-lg font-bold text-navy-900">{pillar.title}</h3>
-              <p className="mt-2 text-sm text-neutral-600">{pillar.text}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
       </section>
 
       <CTASection

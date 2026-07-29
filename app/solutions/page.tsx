@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { solutionsBySize, solutionsByStage } from "@/data/solutions";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
+import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
+import { GradientBlob } from "@/components/animations/GradientBlob";
 import { Check } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -12,31 +14,37 @@ export const metadata: Metadata = {
 
 function SolutionGrid({ items }: { items: typeof solutionsBySize }) {
   return (
-    <div className="mt-10 grid gap-6 md:grid-cols-2">
+    <StaggerReveal className="mt-10 grid gap-6 md:grid-cols-2">
       {items.map((s) => (
-        <div key={s.slug} id={s.slug} className="rounded-card border border-neutral-200 bg-white p-7">
-          <p className="text-xs font-semibold uppercase tracking-wide text-blue-500">{s.employeeRange}</p>
-          <h3 className="mt-2 text-xl font-bold text-navy-900">{s.name}</h3>
-          <p className="mt-3 text-sm text-neutral-600">{s.description}</p>
-          <ul className="mt-5 space-y-2">
-            {s.focusAreas.map((area) => (
-              <li key={area} className="flex items-start gap-2 text-sm text-neutral-700">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
-                {area}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <StaggerItem key={s.slug}>
+          <div
+            id={s.slug}
+            className="h-full rounded-card border border-neutral-200 bg-white p-7 transition-all hover:-translate-y-1 hover:border-blue-300 hover:shadow-lg"
+          >
+            <p className="text-xs font-semibold uppercase tracking-wide text-blue-500">{s.employeeRange}</p>
+            <h3 className="mt-2 text-xl font-bold text-navy-900">{s.name}</h3>
+            <p className="mt-3 text-sm text-neutral-600">{s.description}</p>
+            <ul className="mt-5 space-y-2">
+              {s.focusAreas.map((area) => (
+                <li key={area} className="flex items-start gap-2 text-sm text-neutral-700">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
+                  {area}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerReveal>
   );
 }
 
 export default function SolutionsPage() {
   return (
     <>
-      <section className="bg-navy-950 py-20 text-white md:py-24">
-        <div className="container-page">
+      <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-24">
+        <GradientBlob className="-left-24 top-0 h-72 w-72" />
+        <div className="container-page relative">
           <SectionHeading
             light
             eyebrow="Solutions"

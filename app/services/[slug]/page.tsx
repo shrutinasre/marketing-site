@@ -12,6 +12,7 @@ import { Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
+import { GradientBlob } from "@/components/animations/GradientBlob";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -52,8 +53,9 @@ export default async function ServicePage({
   return (
     <>
       <JsonLd data={[serviceSchema(service), faqPageSchema(service.faqs), breadcrumbs]} />
-      <section className="bg-navy-950 py-20 text-white md:py-28">
-        <div className="container-page">
+      <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-28">
+        <GradientBlob className="-right-20 -top-20 h-72 w-72" />
+        <div className="container-page relative">
           <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
             <Icon className="h-7 w-7" />
           </div>
