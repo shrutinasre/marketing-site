@@ -2,21 +2,11 @@
 
 import { useState } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { services } from "@/data/services";
-
-const serviceOptions = services.map((s) => s.title);
 
 export function ConsultationForm() {
-  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
-
-  function toggleService(service: string) {
-    setSelectedServices((cur) =>
-      cur.includes(service) ? cur.filter((s) => s !== service) : [...cur, service]
-    );
-  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -34,7 +24,6 @@ export function ConsultationForm() {
       industry: String(form.get("industry") || ""),
       employeeCount: String(form.get("employeeCount") || ""),
       businessStage: String(form.get("businessStage") || ""),
-      servicesRequired: selectedServices,
       currentChallenges: String(form.get("currentChallenges") || ""),
       timeline: String(form.get("timeline") || ""),
       message: String(form.get("message") || ""),
@@ -107,26 +96,6 @@ export function ConsultationForm() {
           </select>
         </div>
       </div>
-
-      <fieldset className="mt-6">
-        <legend className="text-sm font-medium text-navy-900">Services Required</legend>
-        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {serviceOptions.map((service) => (
-            <label
-              key={service}
-              className="flex cursor-pointer items-center gap-2 rounded-lg border border-neutral-200 px-3 py-2 text-sm text-neutral-700 has-[:checked]:border-blue-400 has-[:checked]:bg-blue-50"
-            >
-              <input
-                type="checkbox"
-                checked={selectedServices.includes(service)}
-                onChange={() => toggleService(service)}
-                className="accent-blue-500"
-              />
-              {service}
-            </label>
-          ))}
-        </div>
-      </fieldset>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <TextArea label="Current IT Challenges" name="currentChallenges" />
