@@ -49,6 +49,11 @@ export interface PackageTier {
   priceLabel: string;
 }
 
+export interface BlogSection {
+  heading: string;
+  body: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -57,7 +62,7 @@ export interface BlogPost {
   date: string;
   readingTime: string;
   excerpt: string;
-  content: string[];
+  sections: BlogSection[];
 }
 
 export interface TechEcosystemItem {

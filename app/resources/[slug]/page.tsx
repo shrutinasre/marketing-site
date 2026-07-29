@@ -6,6 +6,7 @@ import { CTASection } from "@/components/ui/CTASection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { blogPostingSchema, breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
+import { slugify } from "@/lib/utils";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -61,10 +62,10 @@ export default async function BlogPostPage({
           <nav aria-label="Table of contents" className="mt-8 rounded-card border border-neutral-200 bg-neutral-50 p-5">
             <p className="text-xs font-semibold uppercase tracking-wide text-neutral-500">On this page</p>
             <ol className="mt-2 space-y-1 text-sm text-blue-600">
-              {post.content.map((_, i) => (
-                <li key={i}>
-                  <a href={`#section-${i + 1}`} className="focus-ring hover:underline">
-                    Section {i + 1}
+              {post.sections.map((section) => (
+                <li key={section.heading}>
+                  <a href={`#${slugify(section.heading)}`} className="focus-ring hover:underline">
+                    {section.heading}
                   </a>
                 </li>
               ))}
@@ -72,10 +73,16 @@ export default async function BlogPostPage({
           </nav>
 
           <div className="prose prose-neutral mt-10 max-w-none text-neutral-700">
-            {post.content.map((paragraph, i) => (
-              <p key={i} id={`section-${i + 1}`} className="mb-5 leading-relaxed">
-                {paragraph}
-              </p>
+            {post.sections.map((section) => (
+              <div key={section.heading} className="mb-8">
+                <h2
+                  id={slugify(section.heading)}
+                  className="scroll-mt-28 text-xl font-bold text-navy-900"
+                >
+                  {section.heading}
+                </h2>
+                <p className="mt-3 leading-relaxed">{section.body}</p>
+              </div>
             ))}
           </div>
 
