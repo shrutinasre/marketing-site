@@ -8,11 +8,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { CTASection } from "@/components/ui/CTASection";
 import { Button } from "@/components/ui/Button";
-import { Check } from "lucide-react";
+import { AlertCircle, Lightbulb, Check, ChevronRight } from "lucide-react";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { serviceSchema, faqPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import { GradientBlob } from "@/components/animations/GradientBlob";
+import { ScrollReveal, StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
+import { ProcessSteps } from "@/components/services/ProcessSteps";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -56,7 +58,20 @@ export default async function ServicePage({
       <section className="relative overflow-hidden bg-navy-950 py-20 text-white md:py-28">
         <GradientBlob className="-right-20 -top-20 h-72 w-72" />
         <div className="container-page relative">
-          <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+          <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-1.5 text-xs text-neutral-400">
+            <Link href="/" className="focus-ring hover:text-white">
+              Home
+            </Link>
+            <ChevronRight className="h-3 w-3" />
+            <Link href="/services" className="focus-ring hover:text-white">
+              Services
+            </Link>
+            <ChevronRight className="h-3 w-3" />
+            <span className="text-neutral-300">{service.title}</span>
+          </nav>
+
+          <div className="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/15 text-blue-300">
+            <div className="absolute inset-0 -z-10 animate-pulse rounded-2xl bg-blue-500/20 blur-md" />
             <Icon className="h-7 w-7" />
           </div>
           <h1 className="max-w-2xl text-balance text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -71,48 +86,49 @@ export default async function ServicePage({
 
       <section className="py-16 md:py-20">
         <div className="container-page grid gap-10 md:grid-cols-2">
-          <div>
+          <ScrollReveal direction="left">
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/10 text-red-500">
+              <AlertCircle className="h-5 w-5" />
+            </div>
             <h2 className="text-xl font-bold text-navy-900">The Problem</h2>
             <p className="mt-3 text-neutral-600">{service.problem}</p>
-          </div>
-          <div>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={0.1}>
+            <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/10 text-blue-500">
+              <Lightbulb className="h-5 w-5" />
+            </div>
             <h2 className="text-xl font-bold text-navy-900">Our Solution</h2>
             <p className="mt-3 text-neutral-600">{service.solution}</p>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="bg-neutral-50 py-16 md:py-20">
         <div className="container-page">
           <SectionHeading align="left" title="What's Included" />
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          <StaggerReveal className="mt-8 grid gap-3 sm:grid-cols-2">
             {service.included.map((item) => (
-              <li key={item} className="flex items-start gap-2.5 rounded-xl border border-neutral-200 bg-white p-4 text-sm text-neutral-700">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
-                {item}
-              </li>
+              <StaggerItem key={item}>
+                <div className="flex items-start gap-2.5 rounded-xl border border-neutral-200 bg-white p-4 text-sm text-neutral-700 transition-all hover:-translate-y-0.5 hover:border-blue-300 hover:shadow-md">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
+                  {item}
+                </div>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerReveal>
         </div>
       </section>
 
       <section className="py-16 md:py-20">
         <div className="container-page">
           <SectionHeading align="left" title="Implementation Process" />
-          <ol className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {service.process.map((step, i) => (
-              <li key={step} className="rounded-card border border-neutral-200 p-6">
-                <span className="text-sm font-bold text-blue-500">{String(i + 1).padStart(2, "0")}</span>
-                <p className="mt-2 text-sm text-neutral-700">{step}</p>
-              </li>
-            ))}
-          </ol>
+          <ProcessSteps steps={service.process} />
         </div>
       </section>
 
       <section className="bg-neutral-50 py-16 md:py-20">
         <div className="container-page grid gap-10 md:grid-cols-2">
-          <div>
+          <ScrollReveal direction="left">
             <SectionHeading align="left" title="Benefits" />
             <ul className="mt-6 space-y-3">
               {service.benefits.map((b) => (
@@ -122,26 +138,30 @@ export default async function ServicePage({
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </ScrollReveal>
+          <ScrollReveal direction="right" delay={0.1}>
             <SectionHeading align="left" title="Relevant Technologies" />
             <div className="mt-6 flex flex-wrap gap-2">
               {service.technologies.map((t) => (
-                <span key={t} className="rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm text-neutral-600">
+                <span
+                  key={t}
+                  className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-1.5 text-sm text-neutral-600 transition-colors hover:border-blue-300"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
                   {t}
                 </span>
               ))}
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       <section className="py-16 md:py-20">
         <div className="container-page">
           <SectionHeading align="left" title="Frequently Asked Questions" />
-          <div className="mt-8 max-w-3xl">
+          <ScrollReveal delay={0.1} className="mt-8 max-w-3xl">
             <FAQAccordion items={service.faqs} />
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
