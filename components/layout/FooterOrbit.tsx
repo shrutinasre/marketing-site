@@ -1,20 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Cloud, ShieldCheck, Server, Database, Users, Globe, Mail, Workflow } from "lucide-react";
 
-const particles = Array.from({ length: 24 }, (_, i) => ({
-  x: (i * 37 + 5) % 100,
-  size: 1 + ((i * 13) % 3),
-  duration: 6 + ((i * 7) % 8),
-  delay: (i * 0.6) % 6,
+const icons = [Cloud, ShieldCheck, Server, Database, Users, Globe, Mail, Workflow];
+
+const particles = Array.from({ length: 16 }, (_, i) => ({
+  icon: icons[i % icons.length],
+  x: (i * 6.4 + 4) % 100,
+  size: 12 + ((i * 5) % 6),
+  duration: 9 + ((i * 7) % 8),
+  delay: (i * 0.9) % 8,
 }));
 
 /**
- * Decorative background treatment for the footer — a slow drifting
- * particle field rising through a soft glow, spanning the footer's
- * full height. Distinct from the orbiting-icon-node style used on
- * service/solution pages and from the earlier top-edge signal-wave
- * version, so the footer keeps its own visual identity.
+ * Decorative background treatment for the footer — the same slow
+ * drifting/rising motion as before, but using floating service icons
+ * (cloud, security, servers, database, etc.) instead of plain dots, so
+ * the illustration ties back to what Vighnex actually does.
  */
 export function FooterOrbit() {
   return (
@@ -25,24 +28,24 @@ export function FooterOrbit() {
       />
 
       {particles.map((p, i) => (
-        <motion.span
+        <motion.div
           key={i}
-          className="absolute rounded-full bg-blue-400"
+          className="absolute text-blue-400"
           style={{
             left: `${p.x}%`,
-            width: p.size * 3,
-            height: p.size * 3,
             bottom: 0,
           }}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: [0, 0.5, 0], y: [40, -220] }}
+          initial={{ opacity: 0, y: 40, rotate: -8 }}
+          animate={{ opacity: [0, 0.55, 0], y: [40, -240], rotate: [-8, 8] }}
           transition={{
             duration: p.duration,
             repeat: Infinity,
             delay: p.delay,
             ease: "easeOut",
           }}
-        />
+        >
+          <p.icon style={{ width: p.size, height: p.size }} />
+        </motion.div>
       ))}
     </div>
   );
