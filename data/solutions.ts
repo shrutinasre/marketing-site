@@ -8,6 +8,7 @@ export const solutionsBySize: SolutionSize[] = [
     description:
       "Designed for companies with small teams requiring professional IT without employing internal IT staff.",
     focusAreas: ["Professional email", "Cloud storage", "Basic security", "Ongoing support"],
+    icon: "Building2",
   },
   {
     slug: "small-business",
@@ -16,6 +17,7 @@ export const solutionsBySize: SolutionSize[] = [
     description:
       "Structured infrastructure, employee administration, business systems, security, cloud services and managed support.",
     focusAreas: ["Employee IT management", "Business Systems", "Cloud infrastructure", "Security & backup"],
+    icon: "Users",
   },
   {
     slug: "medium-business",
@@ -24,6 +26,7 @@ export const solutionsBySize: SolutionSize[] = [
     description:
       "More advanced infrastructure management, security, cloud optimization, migrations, monitoring and operational support.",
     focusAreas: ["Cloud migration", "Infrastructure modernization", "Advanced monitoring", "Dedicated IT contact"],
+    icon: "Building",
   },
 ];
 
@@ -34,6 +37,7 @@ export const solutionsByStage: SolutionSize[] = [
     employeeRange: "Starting from zero",
     description: "We build your entire IT foundation from scratch so your team can operate professionally from day one.",
     focusAreas: ["Domain & DNS", "Email & workspace", "Cloud infrastructure", "Business systems & collaboration"],
+    icon: "Rocket",
   },
   {
     slug: "growing-businesses",
@@ -41,6 +45,7 @@ export const solutionsByStage: SolutionSize[] = [
     employeeRange: "Scaling teams",
     description: "We add structure — business systems, security and employee administration — as your team and operations grow.",
     focusAreas: ["Employee IT management", "Business systems administration", "Security baseline", "Managed support"],
+    icon: "TrendingUp",
   },
   {
     slug: "existing-businesses",
@@ -48,6 +53,7 @@ export const solutionsByStage: SolutionSize[] = [
     employeeRange: "Already operating",
     description: "We assess, modernize, secure and manage your current environment so it can scale without unnecessary complexity.",
     focusAreas: ["Infrastructure audit", "Cloud optimization", "Security assessment", "Ongoing management"],
+    icon: "RefreshCw",
   },
   {
     slug: "remote-teams",
@@ -55,5 +61,6 @@ export const solutionsByStage: SolutionSize[] = [
     employeeRange: "Distributed teams",
     description: "We build infrastructure and access management designed for teams that work from anywhere.",
     focusAreas: ["Cloud storage & collaboration", "Access management", "Secure remote access", "Managed support"],
+    icon: "Globe2",
   },
 ];

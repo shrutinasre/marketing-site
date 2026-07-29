@@ -75,4 +75,5 @@ export interface SolutionSize {
   employeeRange: string;
   description: string;
   focusAreas: string[];
+  icon: string;
 }
