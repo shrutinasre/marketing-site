@@ -39,7 +39,7 @@ export const navigation: NavItem[] = [
         items: [
           { label: "Infrastructure Security", href: "/services/it-security", description: "Access control & secure configuration." },
           { label: "Access Management", href: "/services/employee-it-management", description: "Role-based permissions." },
-          { label: "Monitoring", href: "/services/it-security", description: "Proactive infrastructure monitoring." },
+          { label: "Monitoring", href: "/services/monitoring", description: "Proactive infrastructure monitoring." },
           { label: "Backup & Disaster Recovery", href: "/services/backup-disaster-recovery", description: "Plans that hold up under pressure." },
         ],
       },

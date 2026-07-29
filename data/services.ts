@@ -302,6 +302,45 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "monitoring",
+    icon: "Activity",
+    title: "Proactive Monitoring",
+    shortDescription:
+      "Continuous monitoring of your infrastructure, applications and security posture — with alerts before small issues become outages.",
+    category: "security",
+    problem:
+      "Most businesses find out about problems from their customers — a slow site, a failed backup, a suspicious login — because nobody was watching until it was already an issue.",
+    solution:
+      "We continuously monitor your infrastructure, applications and security signals, and alert your team the moment something looks wrong, before it turns into downtime or a breach.",
+    included: [
+      "Uptime & performance monitoring",
+      "Security event & login anomaly alerts",
+      "Backup success verification",
+      "Resource usage & capacity alerts",
+      "Real-time incident notifications",
+      "Monthly monitoring & health reports",
+    ],
+    process: [
+      "Identify the systems and signals worth watching",
+      "Configure monitoring and alert thresholds",
+      "Route alerts to the right people, fast",
+      "Review trends and adjust thresholds over time",
+    ],
+    benefits: [
+      "Issues caught before customers notice",
+      "Faster response when something does go wrong",
+      "A clear record of system health over time",
+    ],
+    technologies: ["Cloudflare", "AWS", "Google Workspace", "Microsoft 365"],
+    faqs: [
+      {
+        question: "How is this different from Security & Backup?",
+        answer:
+          "Security & Backup covers the protections themselves — access control, MFA, backups. Monitoring is the ongoing watch layer on top of those protections and your infrastructure, catching problems as they happen rather than after the fact.",
+      },
+    ],
+  },
+  {
     slug: "website-hosting",
     icon: "Globe",
     title: "Website & Digital Presence",
