@@ -189,6 +189,45 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "business-applications",
+    icon: "LayoutGrid",
+    title: "Business Applications",
+    shortDescription:
+      "Selection, licensing, configuration and ongoing support for the day-to-day apps your team runs on.",
+    category: "systems",
+    problem:
+      "Teams often end up with a patchwork of apps picked one at a time — different tools for docs, projects, communication and billing — with no one making sure licenses, permissions and integrations stay in order.",
+    solution:
+      "We help you choose, license, configure and maintain the day-to-day business applications your team actually uses, so the tools work together instead of piling up.",
+    included: [
+      "Application selection guidance",
+      "Licensing & subscription management",
+      "Configuration & permissions setup",
+      "App-to-app integrations",
+      "User onboarding & training",
+      "Ongoing support & renewals",
+    ],
+    process: [
+      "Audit the apps your team currently uses",
+      "Recommend consolidation or new tools where needed",
+      "Configure permissions, licensing and integrations",
+      "Support your team and manage renewals ongoing",
+    ],
+    benefits: [
+      "Fewer overlapping tools and subscriptions",
+      "Apps that are licensed and configured correctly",
+      "One team to call when something breaks",
+    ],
+    technologies: ["Google Workspace", "Microsoft 365", "Slack", "Notion"],
+    faqs: [
+      {
+        question: "How is this different from Business Systems?",
+        answer:
+          "Business Systems focuses on your CRM and customer-facing workflows. Business Applications covers the broader set of day-to-day tools your team runs on — docs, communication, project management and the licensing behind them.",
+      },
+    ],
+  },
+  {
     slug: "it-security",
     icon: "ShieldCheck",
     title: "Security & Backup",
