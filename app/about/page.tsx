@@ -57,10 +57,9 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-navy-950 py-16 text-white md:py-20">
+      <section className="bg-neutral-50 py-16 md:py-20">
         <div className="container-page grid items-center gap-12 md:grid-cols-2">
           <SectionHeading
-            light
             align="left"
             eyebrow="What Drives Us"
             title="Five Commitments Behind Every Engagement"

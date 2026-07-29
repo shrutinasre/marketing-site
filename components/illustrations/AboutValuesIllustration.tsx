@@ -1,87 +1,95 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Target, Compass, Heart, Workflow, Cpu } from "lucide-react";
-
-const nodes = [
-  { icon: Target, x: 50, y: 12 },
-  { icon: Compass, x: 90, y: 38 },
-  { icon: Heart, x: 76, y: 88 },
-  { icon: Workflow, x: 24, y: 88 },
-  { icon: Cpu, x: 10, y: 38 },
-];
 
 /**
- * Illustration accompanying the About page's mission/values pillars —
- * a central hub with the same five pillar icons orbiting it, in the
- * same abstract/geometric hub-and-spoke style used elsewhere on the
- * site (ServiceConstellation, SystemsCategoryIllustration).
+ * Flat-style character illustration for the About page's "Five
+ * Commitments" section — a person sitting with a compass, sketched
+ * heart and target floating nearby, symbolizing mission and values.
+ * Same illustration language as LaunchIllustration/ContactPersonIllustration
+ * (cream background, teal/coral palette, hand-drawn character).
  */
-export function AboutValuesIllustration() {
+export function AboutValuesIllustration({ className }: { className?: string }) {
   return (
-    <div className="relative mx-auto aspect-square w-full max-w-[340px]" aria-hidden="true">
-      <div
-        className="absolute inset-0 rounded-full blur-2xl"
-        style={{ background: "radial-gradient(circle, rgba(59,130,246,0.3), transparent 65%)" }}
+    <svg
+      viewBox="0 0 420 300"
+      className={className ?? "mx-auto w-full max-w-[360px]"}
+      aria-hidden="true"
+    >
+      <rect x="0" y="0" width="420" height="300" rx="24" fill="#fdf1e3" />
+
+      {/* floating target sketch, top left */}
+      <motion.g
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <circle cx="88" cy="66" r="26" fill="none" stroke="#f4a261" strokeWidth="2.5" />
+        <circle cx="88" cy="66" r="15" fill="none" stroke="#f4a261" strokeWidth="2.5" />
+        <circle cx="88" cy="66" r="4" fill="#f4a261" />
+      </motion.g>
+
+      {/* floating heart sketch, top right */}
+      <motion.path
+        d="M330 50 C 322 40 306 44 306 58 C 306 70 330 86 330 86 C 330 86 354 70 354 58 C 354 44 338 40 330 50 Z"
+        fill="none"
+        stroke="#e76f51"
+        strokeWidth="2.5"
+        strokeLinejoin="round"
+        initial={{ opacity: 0, y: 8 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.15 }}
       />
 
-      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full overflow-visible">
-        {nodes.map((node, i) => (
-          <motion.line
-            key={i}
-            x1={50}
-            y1={50}
-            x2={node.x}
-            y2={node.y}
-            stroke="#3b82f6"
-            strokeWidth="0.5"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={{ pathLength: 1, opacity: 0.5 }}
-            transition={{ duration: 0.8, delay: i * 0.12 }}
-          />
-        ))}
-        <motion.circle
-          cx="50"
-          cy="50"
-          r="10"
-          fill="#0b111f"
-          stroke="#3b82f6"
-          strokeWidth="1.2"
-          initial={{ scale: 0.7, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          style={{ transformOrigin: "50px 50px" }}
-        />
-        {/* orbiting particle */}
-        <motion.circle
-          r="1.6"
-          fill="#93c5fd"
-          initial={{ opacity: 0 }}
-          animate={{
-            cx: [50, 90, 76, 24, 10, 50],
-            cy: [12, 38, 88, 88, 38, 12],
-            opacity: [0, 1, 1, 1, 1, 0],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "linear", delay: 1 }}
-        />
-      </svg>
+      {/* seated person holding a compass */}
+      <motion.g
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <circle cx="200" cy="140" r="24" fill="#f0c199" />
+        <path d="M178 128 q22 -30 44 0 q-6 -16 -22 -16 q-16 0 -22 16 Z" fill="#2b2340" />
+        <rect x="172" y="160" width="56" height="52" rx="18" fill="#2a9d8f" />
+        <rect x="150" y="182" width="18" height="42" rx="9" fill="#2a9d8f" transform="rotate(-24 159 203)" />
+        <rect x="216" y="182" width="18" height="42" rx="9" fill="#2a9d8f" transform="rotate(24 225 203)" />
+        <circle cx="191" cy="136" r="2.6" fill="#2b2340" />
+        <circle cx="210" cy="136" r="2.6" fill="#2b2340" />
+        <path d="M193 148 q7 5 14 0" stroke="#2b2340" strokeWidth="2.2" fill="none" strokeLinecap="round" />
 
-      {nodes.map((node, i) => (
-        <motion.div
+        {/* compass in front of the person */}
+        <circle cx="200" cy="228" r="22" fill="#fdf1e3" stroke="#2b2340" strokeWidth="2.5" />
+        <path d="M200 228 L 210 214 L 200 220 L 190 214 Z" fill="#e76f51" />
+        <path d="M200 228 L 190 242 L 200 236 L 210 242 Z" fill="#2b2340" />
+        <circle cx="200" cy="228" r="2.4" fill="#2b2340" />
+      </motion.g>
+
+      <line x1="0" y1="256" x2="420" y2="256" stroke="#f0dcc0" strokeWidth="2" />
+
+      {/* small plant for warmth */}
+      <rect x="330" y="216" width="20" height="18" rx="3" fill="#a9713f" />
+      <path
+        d="M340 216 q-12 -22 -24 -6 M340 216 q12 -22 24 -6 M340 216 q0 -24 0 -10"
+        stroke="#2a9d8f"
+        strokeWidth="5"
+        fill="none"
+        strokeLinecap="round"
+      />
+
+      {/* rising particles for energy */}
+      {[0, 1].map((i) => (
+        <motion.circle
           key={i}
-          className="absolute flex h-11 w-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-blue-400/40 bg-navy-900/80 text-blue-300 shadow-[0_0_16px_-4px_rgba(59,130,246,0.6)]"
-          style={{ left: `${node.x}%`, top: `${node.y}%` }}
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
-          transition={{
-            opacity: { duration: 0.4, delay: 0.5 + i * 0.1 },
-            scale: { duration: 0.4, delay: 0.5 + i * 0.1 },
-            y: { duration: 3.2 + i * 0.3, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 },
-          }}
-        >
-          <node.icon className="h-5 w-5" />
-        </motion.div>
+          r="3"
+          fill="#f4a261"
+          initial={{ opacity: 0 }}
+          animate={{ cy: [90, 40], opacity: [0, 1, 0] }}
+          transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.8, ease: "easeInOut" }}
+          cx={100 + i * 12}
+        />
       ))}
-    </div>
+    </svg>
   );
 }
