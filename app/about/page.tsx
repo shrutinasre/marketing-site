@@ -3,6 +3,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
 import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
 import { AboutIllustration } from "@/components/illustrations/AboutIllustration";
+import { AboutValuesIllustration } from "@/components/illustrations/AboutValuesIllustration";
 import { Target, Compass, Heart, Workflow, Cpu } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -52,6 +53,21 @@ export default function AboutPage() {
           />
           <div className="mt-10">
             <AboutIllustration />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-navy-950 py-16 text-white md:py-20">
+        <div className="container-page grid items-center gap-12 md:grid-cols-2">
+          <SectionHeading
+            light
+            align="left"
+            eyebrow="What Drives Us"
+            title="Five Commitments Behind Every Engagement"
+            subtitle="These aren't slogans — they're the standard we hold every engagement to, from the first conversation to years of ongoing management."
+          />
+          <div className="hidden md:block">
+            <AboutValuesIllustration />
           </div>
         </div>
       </section>
