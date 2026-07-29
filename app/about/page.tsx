@@ -66,7 +66,7 @@ export default function AboutPage() {
             title="Five Commitments Behind Every Engagement"
             subtitle="These aren't slogans — they're the standard we hold every engagement to, from the first conversation to years of ongoing management."
           />
-          <div className="hidden md:block">
+          <div>
             <AboutValuesIllustration />
           </div>
         </div>
