@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CTASection } from "@/components/ui/CTASection";
 import { StaggerReveal, StaggerItem } from "@/components/animations/ScrollReveal";
-import { TeamAtWorkIllustration } from "@/components/illustrations/people/TeamAtWorkIllustration";
+import { AboutIllustration } from "@/components/illustrations/AboutIllustration";
 import { Target, Compass, Heart, Workflow, Cpu } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -51,7 +51,7 @@ export default function AboutPage() {
             subtitle="Many smaller businesses either operate with fragmented technology or spend too much time coordinating multiple vendors. Vighnex exists to provide a structured, secure and scalable technology foundation through one managed relationship."
           />
           <div className="mt-10">
-            <TeamAtWorkIllustration className="mx-auto w-full max-w-[440px]" />
+            <AboutIllustration />
           </div>
         </div>
       </section>
