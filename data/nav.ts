@@ -31,7 +31,7 @@ export const navigation: NavItem[] = [
           { label: "Business Systems", href: "/services/business-systems", description: "Implementation & administration." },
           { label: "Business Applications", href: "/services/business-applications", description: "The tools your team runs on." },
           { label: "Workspace Administration", href: "/services/business-email-workspace", description: "Google Workspace / Microsoft 365." },
-          { label: "Integrations", href: "/services/business-systems", description: "Connecting your business systems." },
+          { label: "Integrations", href: "/services/integrations", description: "Connecting your business systems." },
         ],
       },
       {

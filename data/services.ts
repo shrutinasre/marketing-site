@@ -228,6 +228,45 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "integrations",
+    icon: "Workflow",
+    title: "Integrations",
+    shortDescription:
+      "Connecting the business systems and applications your team already uses so data flows between them automatically.",
+    category: "systems",
+    problem:
+      "Even good tools become a burden when nobody connects them — teams end up re-typing the same customer data across a CRM, email, billing and spreadsheets, with details drifting out of sync.",
+    solution:
+      "We connect the systems and applications you already run, so information moves between them automatically instead of depending on someone remembering to copy it over.",
+    included: [
+      "Integration mapping across your existing tools",
+      "API & native connector setup",
+      "Automated data sync between systems",
+      "Workflow automation for repetitive handoffs",
+      "Error monitoring & alerting on failed syncs",
+      "Ongoing maintenance as tools change",
+    ],
+    process: [
+      "Map the systems and data that need to connect",
+      "Choose native connectors or custom integrations",
+      "Build and test the automated data flow",
+      "Monitor and maintain integrations ongoing",
+    ],
+    benefits: [
+      "No more re-typing the same data twice",
+      "Fewer things falling through the cracks",
+      "Systems that actually work as one",
+    ],
+    technologies: ["Zapier", "Make", "REST APIs", "Google Workspace", "Microsoft 365"],
+    faqs: [
+      {
+        question: "How is this different from Business Systems or Business Applications?",
+        answer:
+          "Business Systems and Business Applications cover choosing, configuring and administering your tools. Integrations is specifically about connecting those tools together so data moves between them without manual re-entry.",
+      },
+    ],
+  },
+  {
     slug: "it-security",
     icon: "ShieldCheck",
     title: "Security & Backup",

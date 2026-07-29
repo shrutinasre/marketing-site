@@ -5,6 +5,7 @@ import { ApplicationHostingIllustration } from "@/components/illustrations/categ
 import { DatabaseManagementIllustration } from "@/components/illustrations/categories/DatabaseManagementIllustration";
 import { CloudStorageIllustration } from "@/components/illustrations/categories/CloudStorageIllustration";
 import { BusinessApplicationsIllustration } from "@/components/illustrations/categories/BusinessApplicationsIllustration";
+import { IntegrationsIllustration } from "@/components/illustrations/categories/IntegrationsIllustration";
 import { SystemsCategoryIllustration } from "@/components/illustrations/categories/SystemsCategoryIllustration";
 import { WebsiteCategoryIllustration } from "@/components/illustrations/categories/WebsiteCategoryIllustration";
 import { EmployeeCategoryIllustration } from "@/components/illustrations/categories/EmployeeCategoryIllustration";
@@ -34,6 +35,9 @@ export function ServiceCategoryIllustration({
   }
   if (slug === "business-applications") {
     return <BusinessApplicationsIllustration />;
+  }
+  if (slug === "integrations") {
+    return <IntegrationsIllustration />;
   }
 
   switch (category) {
